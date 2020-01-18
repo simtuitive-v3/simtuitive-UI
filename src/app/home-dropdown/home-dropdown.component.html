@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 p0">
+            <div class="category-holder">
+                <div (click)="categorySelection('Finance')"
+                    [ngClass]="{'category-item':true, 'category-item-one':category === 'Finance'}">
+                    Finance
+                </div>
+                <div class="category-item" (click)="categorySelection('Marketing')"
+                    [ngClass]="{'category-item':true, 'category-item-one':category === 'Marketing'}">
+                    Marketing
+                </div>
+                <div class="category-item" (click)="categorySelection('Operations')"
+                    [ngClass]="{'category-item':true, 'category-item-one':category === 'Operations'}">
+                    Operations
+                </div>
+                <div class="category-item" (click)="categorySelection('Analytics')"
+                    [ngClass]="{'category-item':true, 'category-item-one':category === 'Analytics'}">
+                    Analytics
+                </div>
+                <div class="category-item" (click)="categorySelection('HR')"
+                    [ngClass]="{'category-item':true, 'category-item-one':category === 'HR'}">
+                    HR
+                </div>
+                <div class="category-item" (click)="categorySelection('General Management')"
+                    [ngClass]="{'category-item':true, 'category-item-one':category === 'General Management'}">
+                    General Management
+                </div>
+                <div class="category-item" (click)="categorySelection('Sales')"
+                    [ngClass]="{'category-item':true, 'category-item-one':category === 'Sales'}">
+                    Sales
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="top-sim-holder">
+                <div class="top-sim-header">Top simulations</div>
+                <div class="drpdwn-sim-items-container">
+                    <div *ngFor="let product of filteredProducts,let i = index">
+                        <div *ngIf="i<5" class="drpdwn-sim-item" (click)='navigateToFn(product)' data-dismiss="modal">
+                            <div class="drpdwn-sim-name">
+                                {{product.productTitle}}
+                            </div>
+                            <div class="sim-details">
+                                <span><i class="fas fa-signal" style="padding-right:5px"></i>
+                                    {{product.courseLevel}}</span>
+                                <span><i class="far fa-clock" style="padding-right:5px"></i>
+                                    {{product.contentDuration}}</span>
+                            </div>
+                        </div>
+                        <!-- <div *ngIf="(i%2)>0" class="sim-item">
+                        <div class="sim-name">
+                            {{product.productTitle}}
+                        </div>
+                        <div class="sim-details">
+                            <span><i class="fas fa-signal" style="padding-right:5px"></i>Fundamentals</span>
+                            <span><i class="far fa-clock" style="padding-right:5px"></i>250 min</span>
+                        </div>
+                    </div> -->
+
+                    </div>
+                </div>
+                <div class="sim-view-btn" (click)="navigation(category)" data-dismiss="modal">
+                    VIEW ALL
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="close-btn">
+                <i class="fas fa-times login-close" data-dismiss="modal"></i>
+            </div>
+            <div class="sim-list-options" data-dismiss="modal">
+                <div class="sim-list-item" routerLink="/products/categories">View all categories</div>
+                <div class="sim-list-item" (click)="navigation('All')">View all simulations</div>
+                <!-- <div class="sim-list-item">Just launched</div> -->
+            </div>
+        </div>
+    </div>
+</div>

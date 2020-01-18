@@ -1,0 +1,56 @@
+<div *ngIf="showLogin">
+    <div class="login-heading">Log In <i class="fas fa-times login-close" data-dismiss="modal"></i></div>
+    <div class="login-google" (click)="signInWithGoogle()">
+        <img src="/assets/google-logo.png" style="padding-right: 15px;">Continue with Google
+    </div>
+    <div class="pg-seperator">
+        <span class="pg-or-text">or</span>
+    </div>
+    <form id="loginForm">
+        <div class="login-inputs">
+            <div class="input-group mb-3">
+                <input id="loginEmail" type="text" class="form-control" placeholder="Email" name="userEmail"[(ngModel)]="userEmail">
+            </div>
+
+            <div class="input-group mb-3">
+                <input id="loginPassword" type="password" class="form-control" placeholder="Password" name="password"[(ngModel)]="password">
+            </div>
+        </div>
+        <div *ngIf="errorMsgVisible" class="error-msg">{{errorMsg || "Required Username and Password."}}</div>
+        <div class="forgot-pwd-link" (click)="changeModalView('forgotPassword')">
+            Forgot password?
+        </div>
+        <div class="signup-holder">
+            <button type="button" class="btn button-common login-signin-btn" style="font-weight: bold;"
+                (click)="loginUser()">Sign
+                In</button>
+            <div class="signup-link">
+                Don't have an account? <span class="sign-up-link-small" (click)="goToSignup()">SIGN UP</span>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="showForgotPwd">
+    <div class="login-heading">Forgot Password<i class="fas fa-times login-close" data-dismiss="modal"
+            (click)='closeOtherModalsFn()'></i></div>
+    <div class="login-inputs">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Email" [(ngModel)]="resetEmail">
+        </div>
+    </div>
+    <div class="signup-holder">
+        <button type="button" class="btn button-common login-signin-btn" style="font-weight: bold;"
+            (click)="changeModalView('forgotPwdMsg')" [disabled]='!resetEmail'>Reset Password
+        </button>
+    </div>
+</div>
+
+<div *ngIf="showForgotPwdMsg">
+    <div class="login-heading">Forgot Password<i class="fas fa-times login-close" data-dismiss="modal"
+            (click)='closeOtherModalsFn()'></i></div>
+    <div class="forgot-msg">
+        You should soon receive an email allowing you to reset your password. Please make sure to check your spam
+        and trash if you can't find the email.
+    </div>
+</div>

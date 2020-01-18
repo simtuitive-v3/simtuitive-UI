@@ -1,0 +1,220 @@
+.logged-in-header {
+  // height: 120px;
+  background: #1f2730;
+}
+.logged-in-heading {
+  font-size: 30px;
+  color: white;
+  font-family: "Ubuntu";
+  padding-top: 30px;
+  padding-bottom: 21px;
+}
+textarea {
+  color: white;
+}
+.sim-detail-navbar {
+  font-size: 16px;
+  color: #b9b9b9;
+  // padding-top: 50px;
+}
+.sim-detail-navbar > li > a {
+  padding: 12px 0;
+  font-size: 16px;
+  color: #b9b9b9;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+.sim-detail-navbar > li.active > a {
+  padding: 12px 15px;
+  font-size: 16px;
+  border-bottom: 3px solid #00ebc7;
+  cursor: pointer;
+  font-weight: 600;
+  color: white !important;
+  background-color: #1e2730 !important;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1e2730;
+  border-bottom: 3px solid #00ebc7;
+  font-weight: 600;
+  border-radius: 0;
+}
+.sim-detail-navbar > li > a:hover {
+  padding: 12px 0;
+  font-size: 16px;
+  border-bottom: 3px solid #00ebc7;
+  cursor: pointer;
+  color: white !important;
+}
+.sim-detail-tab-content {
+  color: white;
+  padding-top: 20px;
+  font-size: 16px;
+  line-height: 30px;
+}
+.sim-detail-navbar li {
+  margin-right: 50px;
+}
+
+.business-chal-item {
+  background: #14191e;
+  border-radius: 3px;
+  padding: 25px 40px;
+  margin-bottom: 30px;
+}
+.chal-heading {
+  font-size: 17px;
+  color: #848484;
+  font-weight: 600;
+  position: relative;
+}
+.chal-description {
+  font-size: 16px;
+  color: #b9b9b9;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  line-height: 35px;
+}
+.chal-expand-icon {
+  position: absolute;
+  right: 50px;
+  top: 2px;
+  font-size: 20px;
+  color: #f08902;
+}
+.account-info-value {
+  color: white;
+  padding-left: 18px;
+}
+.account-info-value .fas {
+  font-size: 8px;
+  padding-right: 8px;
+}
+.edit-text {
+  font-size: 14px;
+  color: #848484;
+  padding-right: 10px;
+  position: absolute;
+  right: 0;
+}
+.acc-settings-form-holder {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  border-top: 1px solid #485054;
+  margin-top: 10px;
+  position: relative;
+}
+.acc-settings-form-holder span {
+  padding-right: 20px;
+}
+.acc-settings-form-holder input {
+  margin-right: 40px;
+  color: white;
+}
+.acc-settings-form-holder-pwd {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 40px;
+  border-top: 1px solid #485054;
+  margin-top: 10px;
+  position: relative;
+}
+.acc-settings-form-holder-pwd span {
+  padding-right: 20px;
+}
+.acc-settings-form-holder-pwd input {
+  margin-right: 40px;
+  color: white;
+}
+
+.acc-set-input-holder {
+  display: flex;
+  align-items: center;
+  color: #848484;
+}
+.acc-set-input-holder-add {
+  display: flex;
+  color: #848484;
+}
+.acc-setting-btn {
+  border-radius: 18px;
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+.acc-setting-btn-pwd {
+  border-radius: 18px;
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+}
+.error-msg {
+  font-size: 13px;
+  color: #ff5656;
+  padding-bottom: 15px;
+  text-align: left;
+}
+.hover-span {
+  cursor: pointer;
+}
+
+.isSmallerScreen {
+  display: none;
+}
+
+// Responsive styles/Logics from here
+@media only screen and (max-width: 414px) {
+  .isBiggerScreen {
+    display: none;
+  }
+  .isSmallerScreen {
+    display: inline;
+  }
+  .business-chal-item {
+    padding-right: 0px;
+    padding-left: 25px;
+  }
+  .account-info-value {
+    padding: 0;
+  }
+  .chal-expand-icon {
+    font-size: 15px;
+    top: 9%;
+  }
+  .edit-text {
+    font-size: 11px;
+    padding-right: 19px;
+    top: 0;
+  }
+  .acc-settings-form-holder {
+    padding-top: 15px;
+  }
+  .mob-layOut-btn {
+    border-radius: 18px;
+    font-weight: bold;
+    // margin-left: 35%;
+  }
+  .col-xs-12 > span {
+    color: #848484;
+  }
+  .row {
+    margin-left: 0;
+  }
+  .col-sm-12 {
+    padding-left: 0;
+  }
+  .col-sm-12 > input {
+    width: 93%;
+  }
+  .mob-layOut-holder {
+    padding-top: 10px;
+    border-top: 1px solid #485054;
+    margin-top: 10px;
+    width: 95%;
+  }
+}

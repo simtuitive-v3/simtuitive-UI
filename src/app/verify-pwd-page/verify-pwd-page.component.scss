@@ -1,0 +1,45 @@
+.header {
+  background: #14191e;
+  height: 80px;
+  width: 100%;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.header-logo {
+  width: 80px;
+  height: 40px;
+  margin-left: 90px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.login-heading {
+  color: white;
+  font-size: 30px;
+  font-family: "Ubuntu";
+  padding-bottom: 25px;
+}
+
+.verify-pwd-btn {
+  border-radius: 20px;
+  font-size: 16px !important;
+  margin-top: 20px;
+}
+.verify-pwd-container {
+  width: 370px;
+  margin: auto;
+  padding-top: 60px;
+}
+
+.verifyEmailBody {
+  color: white;
+  font-size: 20px;
+}
+
+.mar-top-16Cent {
+  margin-top: 16%;
+}

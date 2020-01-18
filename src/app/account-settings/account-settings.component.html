@@ -1,0 +1,220 @@
+<app-logged-in-header></app-logged-in-header>
+
+<div class="logged-in-header logged-in-margin-top">
+    <div class="container">
+        <div class="logged-in-heading">
+            My Account Settings
+        </div>
+        <ul class="nav nav-pills mb-3 sim-detail-navbar" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="accountInfo-tab" data-toggle="pill" href="#accountInfo" role="tab"
+                    aria-controls="accountInfo" aria-selected="true">Account Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" id="paymentMethod-tab" data-toggle="pill" href="#paymentMethod" role="tab"
+                    aria-controls="paymentMethod" aria-selected="false">Payment Methods</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <div class="tab-content">
+        <div class="tab-content sim-detail-tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="accountInfo" role="tabpanel" aria-labelledby="accountInfo-tab">
+                <div class="business-chal-item">
+                    <div class="chal-heading">Name : <br class="isSmallerScreen">
+                        <span class="account-info-value">{{userDetail?.firstName}}
+                            {{userDetail?.lastName}}</span>
+                        <span class="hover-span" data-toggle="collapse" href="#usernameSection" role="button"
+                            aria-expanded="false" aria-controls="usernameSection">
+                            <i class="far fa-edit chal-expand-icon"></i><span class="edit-text">EDIT</span>
+                        </span>
+                    </div>
+                    <div class="collapse" id="usernameSection">
+                        <div class="acc-settings-form-holder">
+                            <div class="input-group mb-3 acc-set-input-holder col-md-5 isBiggerScreen">
+                                <span>First Name : </span>
+                                <input type="text" class="form-control" name="firstName" [(ngModel)]="firstName">
+                            </div>
+                            <div class="input-group mb-3 acc-set-input-holder col-md-5 isBiggerScreen">
+                                <span>Last Name : </span>
+                                <input type="text" class="form-control" [(ngModel)]="lastName" name="lastName">
+                            </div>
+                            <div class="isBiggerScreen">
+                                <button data-toggle="collapse" href="#usernameSection" type="button"
+                                    class="btn button-common acc-setting-btn" (click)="updateName()"
+                                    style="font-weight: bold;">SAVE</button>
+                            </div>
+                            <div class="isSmallerScreen">
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12 form-group">
+                                        <span>First Name:</span>
+                                        <input type="text" class="form-control" name="firstName"
+                                            [(ngModel)]="firstName">
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12 form-group">
+                                        <span>Last Name : </span>
+                                        <input type="text" class="form-control" [(ngModel)]="lastName" name="lastName">
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12 text-center">
+                                        <button data-toggle="collapse" href="#usernameSection"
+                                            class="btn button-common mob-layOut-btn"
+                                            (click)="updateName()">SAVE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="business-chal-item">
+                    <div class="chal-heading">Email : <br class="isSmallerScreen"><span
+                            class="account-info-value">{{userDetail?.email}}</span>
+                    </div>
+                    <div class="collapse" id="emailSection">
+                        <div class="acc-settings-form-holder">
+                            <div class="input-group mb-3 acc-set-input-holder col-md-5">
+                                <span>EMAIl : </span>
+                                <input type="text" class="form-control" name="email" [(ngModel)]="email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="business-chal-item">
+                    <div class="chal-heading">Password : <br class="isSmallerScreen"><span class="account-info-value"><i
+                                class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i
+                                class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i
+                                class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i><i
+                                class="fas fa-circle"></i></span>
+                        <span class="hover-span" data-toggle="collapse" href="#passwordSection" role="button"
+                            aria-expanded="false" aria-controls="passwordSection">
+                            <i class="far fa-edit chal-expand-icon"></i><span class="edit-text">EDIT</span>
+                        </span>
+                    </div>
+                    <div class="collapse" id="passwordSection">
+                        <div class="acc-settings-form-holder-pwd">
+                            <div class="input-group mb-3 acc-set-input-holder col-md-7 isBiggerScreen">
+                                <span>Type current password : </span>
+                                <input type="password" class="form-control" placeholder="current password"
+                                    name="currentPassword" [(ngModel)]="currentPassword">
+                            </div>
+                            <div class="input-group mb-3 acc-set-input-holder col-md-7 isBiggerScreen">
+                                <span style="padding-right: 40px;">Type new password : </span>
+                                <input type="password" class="form-control" placeholder="new password" name="password"
+                                    [(ngModel)]="password">
+                            </div>
+                            <div class="input-group mb-3 acc-set-input-holder col-md-7 isBiggerScreen">
+                                <span style="padding-right: 30px;">Type password again : </span>
+                                <input type="password" class="form-control" placeholder="repeat new password"
+                                    name="confirmPassword" [(ngModel)]="confirmPassword">
+                            </div>
+
+                            <div *ngIf="errorMsgVisible" class="error-msg isBiggerScreen">{{errorMsg }}</div>
+                            <div>
+                                <button type="button" [disabled]="!confirmPassword || !password || !currentPassword"
+                                    (click)="updatePassword()"
+                                    class="btn button-common acc-setting-btn-pwd isBiggerScreen"
+                                    style="font-weight: bold;">SAVE</button>
+                            </div>
+                            <div class="isSmallerScreen">
+                                <div class="row">
+                                    <div class="col-sm-12 col-xs-12 form-group">
+                                        <span>Type current password : </span>
+                                        <input type="password" class="form-control" placeholder="current password"
+                                            name="currentPassword" [(ngModel)]="currentPassword">
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12 form-group">
+                                        <span style="padding-right: 40px;">Type new password : </span>
+                                        <input type="password" class="form-control" placeholder="new password"
+                                            name="password" [(ngModel)]="password">
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12 form-group">
+                                        <span style="padding-right: 30px;">Type password again : </span>
+                                        <input type="password" class="form-control" placeholder="repeat new password"
+                                            name="confirmPassword" [(ngModel)]="confirmPassword">
+                                    </div>
+                                    <div *ngIf="errorMsgVisible" class="error-msg isSmallerScreen">{{errorMsg}}</div>
+                                    <div class="col-sm-12 col-xs-12 text-center">
+                                        <button [disabled]="!confirmPassword || !password || !currentPassword"
+                                            (click)="updatePassword()"
+                                            class="btn button-common mob-layOut-btn">SAVE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="passwordRejectModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="margin-top: 10%;">
+                        <div class="modal-content wish-added-modal-container">
+                            <div class="wish-added-heading">Account Settings<i class="fas fa-times wish-added-close"
+                                    data-dismiss="modal"></i>
+                            </div>
+                            <div class="wish-added-msg">
+                                The current password you have entered in incorrect!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="passwordAcceptedModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="margin-top: 10%;">
+                        <div class="modal-content wish-added-modal-container">
+                            <div class="wish-added-heading">Account Settings<i class="fas fa-times wish-added-close"
+                                    data-dismiss="modal"></i>
+                            </div>
+                            <div class="wish-added-msg">
+                                The password has been changed!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="business-chal-item">
+                    <div class="chal-heading">Billing Address : <br class="isSmallerScreen"><span
+                            class="account-info-value">{{userDetail?.billingAddress}}</span>
+                        <span class="hover-span" data-toggle="collapse" href="#addressSection" role="button"
+                            aria-expanded="false" aria-controls="addressSection">
+                            <i class="far fa-edit chal-expand-icon"></i><span class="edit-text">EDIT</span>
+                        </span>
+                    </div>
+                    <div class="collapse" id="addressSection">
+                        <div class="acc-settings-form-holder isBiggerScreen">
+                            <div class="input-group mb-3 acc-set-input-holder-add col-md-8">
+                                <span>New Billing Address : </span>
+                                <textarea type="text" class="form-control" [(ngModel)]="address"
+                                    name="address"></textarea>
+                            </div>
+                            <div>
+                                <button data-toggle="collapse" href="#addressSection" type="button"
+                                    class="btn button-common acc-setting-btn-pwd" style="font-weight: bold;"
+                                    (click)="updateAddress()">SAVE</button>
+                            </div>
+                        </div>
+                        <div class="isSmallerScreen">
+                            <div class="row">
+                                <div class="mob-layOut-holder">
+                                    <div class="col-sm-12 col-xs-12 form-group">
+                                        <span>New Billing Address : </span>
+                                        <textarea type="text" class="form-control" [(ngModel)]="address"
+                                            name="address"></textarea>
+                                    </div>
+                                    <div class="col-sm-12 col-xs-12 text-center">
+                                        <button data-toggle="collapse" href="#addressSection"
+                                            class="btn button-common mob-layOut-btn"
+                                            (click)="updateAddress()">SAVE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="paymentMethod" role="tabpanel" aria-labelledby="paymentMethod-tab">
+                Payment Methods
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin-top: 100px;">
+    <app-logged-in-footer></app-logged-in-footer>
+</div>

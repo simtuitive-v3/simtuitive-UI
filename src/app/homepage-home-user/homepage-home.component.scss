@@ -1,0 +1,266 @@
+.banner-heading {
+  padding-bottom: 40px;
+  line-height: 60px;
+}
+.simulated-text {
+  font-size: 40px;
+  color: #00ebc7;
+  font-family: "Ubuntu";
+}
+.simulated-text-two {
+  font-size: 40px;
+  color: #ffffff;
+  font-family: "Ubuntu";
+}
+.banner-text {
+  font-size: 16px;
+  color: #ffffff;
+  line-height: 30px;
+  padding-bottom: 40px;
+  padding-right: 130px;
+}
+.watch-demo-icon {
+  padding: 16px 14px 15px 19px;
+  border-radius: 50%;
+  border: 1px solid #707070;
+  width: 52px;
+  height: 52px;
+  display: inline-block;
+  cursor: pointer;
+}
+.play-icon {
+  color: #ffffff;
+  font-size: 18px;
+}
+.banner-img {
+  width: 390px;
+  height: 345px;
+}
+.signup-large-btn {
+  // padding: 9px 35px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  border-radius: 30px;
+  margin-left: 43px;
+  width: 142px;
+  height: 50px;
+}
+.home-banner-btn {
+  color: #ffffff;
+  font-weight: 300;
+}
+.green-text {
+  color: #00ebc7;
+}
+.banner-two {
+  padding-bottom: 130px;
+}
+.brand-logos {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 130px;
+  align-items: center;
+  margin: auto;
+}
+.logo-img {
+  height: 25px;
+}
+.banner-two-heading {
+  font-family: "Ubuntu";
+  color: #00ebc7;
+  font-size: 40px;
+  padding-bottom: 40px;
+  padding-right: 40px;
+}
+.banner-two-text {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 30px;
+  width: 85%;
+}
+.banner-three-images {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+.banner-three-img-holder {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+.banner-three-text {
+  color: #b9b9b9;
+  font-size: 16px;
+  line-height: 30px;
+  width: 250px;
+}
+.banner-four-img-container {
+  height: 350px;
+  border: 1px solid white;
+}
+.banner-four {
+  padding-top: 130px;
+}
+.try-for-free-banner {
+  padding: 80px 0;
+  background: #1f2730;
+  text-align: center;
+  margin-top: 130px;
+}
+.try-for-free-text {
+  font-family: "Ubuntu";
+  font-size: 40px;
+  color: #ffffff;
+  padding-bottom: 40px;
+}
+.view-prod-signup {
+  padding: 9px 50px !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  border-radius: 25px;
+}
+.view-prod-btn {
+  margin-right: 64px;
+  border: 1px solid #ff9100 !important;
+  padding: 9px 28px !important;
+  border-radius: 25px;
+}
+.banner-why-text {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 30px;
+  width: 60%;
+  margin: auto;
+}
+.view-prod-btn:hover,
+.view-prod-btn:active {
+  background-color: #1e2730;
+}
+.video-dropdown-modal-content {
+  width: 746px;
+  height: 490px;
+  background-color: #14191e;
+  border-radius: 3px;
+  box-shadow: 0px -5px 20px #00000033;
+}
+.close-btn {
+  padding: 25px 18px 15px 18px;
+}
+.login-close {
+  float: right;
+  color: #ff5656;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.video-block {
+  padding: 0% 3%;
+}
+
+.video-block > video {
+  outline: none;
+}
+
+.text-simtuitive {
+  color: #ffffff;
+}
+.banner-btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.feature-heading {
+  font-size: 20px;
+  color: #00ebc7;
+  padding-top: 40px;
+}
+.isSmallerScreen,
+.isSmallerScreen-block {
+  display: none;
+}
+
+// Responsive styles/Logic starts from here
+@media only screen and (max-width: 414px) {
+  .isBiggerScreen {
+    display: none;
+  }
+  .isSmallerScreen {
+    display: inline;
+  }
+  .isSmallerScreen-block {
+    display: block;
+  }
+  .banner-heading {
+    line-height: 35px;
+    padding-bottom: 0;
+  }
+  .simulated-text {
+    font-size: 25px;
+    width: 102%;
+    text-align: center;
+  }
+  .banner-img-container {
+    margin: 10% 0;
+    display: block;
+    text-align: center;
+  }
+  .try-for-free-text {
+    font-size: 25px;
+  }
+  .mobile-video {
+    margin: 0 auto 40px;
+    display: block;
+  }
+  .banner-text {
+    padding-right: 0;
+    text-align: center;
+  }
+  .banner-btn-container {
+    justify-content: center;
+    margin-bottom: 10%;
+  }
+  .mobile-view-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    align-items: center;
+  }
+  .banner-two-heading {
+    font-size: 25px;
+    padding-bottom: 30px;
+  }
+  .banner-two-text {
+    width: 100%;
+  }
+  .mar-top-15Cent {
+    margin-top: 15%;
+  }
+  .banner-two {
+    padding-bottom: 90px;
+  }
+  .try-for-free-banner {
+    margin-top: 90px;
+  }
+  .banner-four {
+    padding-top: 90px;
+  }
+  .mar-top-60px {
+    margin-top: 60px;
+  }
+  .banner-three-text {
+    width: auto;
+  }
+  .mobile-layOut-img {
+    margin-bottom: 15%;
+  }
+  .view-prod-btn {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (min-width: 414px) and (max-width: 1000px) {
+  .isSmallerScreen-block {
+    display: block;
+  }
+}

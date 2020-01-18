@@ -1,0 +1,69 @@
+<!-- product expand view modal -->
+
+<div>
+    <div class="product-drpdwn-menu">
+        <div class="product-expand-view">
+            <div class="product-exp-heading">{{productData?.productTitle}}<i (click)="closeModal()"
+                    class="fas fa-times product-exp-close" data-dismiss="modal"></i></div>
+            <div class="">
+                <div style="display: flex;">
+                    <div class="video-img-container" style="margin-right: 2%;">
+                        <img [src]="productData?.productThumbNailImageUrl2" width="700" height="400"  class="sim-detail-video"
+                            (click)='playOrCloseVideoFn()' [hidden]='productData?.hideImgAndIcon'>
+                        <i class="far fa-play-circle play-icon" [hidden]='productData?.hideImgAndIcon'
+                            (click)='playOrCloseVideoFn()'></i>
+
+                        <video width="700" height="400" autoplay controls controlsList="nodownload" #videoPlayer
+                            *ngIf='productData?.hideImgAndIcon' (ended)='playOrCloseVideoFn()'>
+                            <source [src]="productData?.productTeaserVideoUrl" type="video/mp4">
+                        </video>
+                    </div>
+                    <div>
+                        <div class="product-drpdwn-icons">
+                            <span style="padding-right: 45px;"><i class="fas fa-signal"
+                                    style="padding-right:5px"></i>{{productData?.courseLevel}}</span>
+                            <span><i class="far fa-clock"
+                                    style="padding-right:5px"></i>{{productData?.contentDuration}}</span>
+                        </div>
+                        <div class="prod-drpdwn-desc">
+                            {{productData?.productDescription2}}
+                        </div>
+                        <div class="product-drpdwn-btn-holder">
+                            <button type="button" class="btn prd-drpDwn-add-wishlist"
+                                (click)='loggedInOpenWishListModalFn()'>Add to Wishlist</button>
+                            <button type="button" class="btn button-common prod-drpdwn-learn-btn"
+                                routerLink="/user/product/{{productData.id}}" data-dismiss="modal">Learn
+                                More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="logged-in-wishList-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="margin-top: 10%;">
+        <div class="modal-content wish-added-modal-container">
+            <div class="wish-added-heading">Thank you<i class="fas fa-times wish-added-close"
+                    (click)="closeWishlistModal()"></i>
+            </div>
+            <div class="wish-added-msg">
+                Thank you for adding the simulation to your wishlist. You will be the first to know when this
+                simulation is released.
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="logged-in-wishList-reject-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="margin-top: 10%;">
+        <div class="modal-content wish-added-modal-container">
+            <div class="wish-added-heading">Wishlist<i class="fas fa-times wish-added-close"
+                    (click)="closeWishlistModal()"></i>
+            </div>
+            <div class="wish-added-msg">
+                You have already added this product to your wishlist. Thanks for liking it again
+            </div>
+        </div>
+    </div>
+</div>

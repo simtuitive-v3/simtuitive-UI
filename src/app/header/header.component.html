@@ -1,0 +1,228 @@
+<div class="container-fluid fixed-top">
+
+  <div class="container">
+
+    <div class="row isBiggerScreen">
+
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+        <img src="/assets/header-logo-new.svg" class="img-fluid header-logo" routerLink="/home">
+      </div>
+
+      <div class="col-lg-1 col-md-1 isBiggerScreen"></div>
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <!-- <div class="header-mid-container">
+          <div class="dropdown header-dropdown" data-toggle="modal" href="#simulationDropdownModal">
+            <a class="btn dropdown-toggle" style="color:#848484;padding: 5px 5px 5px 15px;" role="button"
+              id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+              Simulations
+            </a>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </div>
+          <div class="search-container">
+            <input class="header-search" placeholder="Search Simulations" name="textSearch" [(ngModel)]="textSearch">
+            <i class="fas fa-search search-icon" (click)="SearchSimulations(textSearch)"></i>
+          </div>
+        </div> -->
+        <div class="row header-mid-container">
+          <div class="col-lg-3 col-md-3 isBiggerScreen">
+            <div class="dropdown header-dropdown" data-toggle="modal" href="#simulationDropdownModal">
+              <a class="btn dropdown-toggle" style="color:#848484;padding: 5px 5px 5px 15px;" role="button"
+                id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                Simulations
+              </a>
+              <i class="fas fa-chevron-down dropdown-icon"></i>
+            </div>
+          </div>
+
+          <div class="col-lg-9 col-md-9">
+            <div class="search-container">
+              <input class="header-search" placeholder="Search Simulations" name="textSearch" [(ngModel)]="textSearch">
+              <i class="fas fa-search search-icon" (click)="SearchSimulations(textSearch)"></i>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="header-tabs isBiggerScreen">
+          <!-- <ul class="nav nav-pills"> -->
+          <li class="nav-item">
+            <a class="nav-link" href="/home" [routerLink]="['/home']"
+              [routerLinkActive]="['home-nav-active-tab']">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/personal/details" [routerLink]="['/personal/details']"
+              [routerLinkActive]="['home-nav-active-tab']">Personal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/business/details" [routerLink]="['/business/details']"
+              [routerLinkActive]="['home-nav-active-tab']">Business</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/institution/details" [routerLink]="['/institution/details']"
+              [routerLinkActive]="['home-nav-active-tab']">Institution</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/partners" [routerLink]="['/partners']"
+              [routerLinkActive]="['home-nav-active-tab']">Partner with us</a>
+          </li>
+          <!-- </ul> -->
+        </div>
+      </div>
+
+      <!-- <div class="col-lg-1 col-md-1">
+
+      </div> -->
+
+      <div class="col-lg-3 col-md-3 isBiggerScreen">
+        <div class="header-btn">
+          <button type="button" class="btn btn-link color-common header-login-btn" data-toggle="modal"
+            data-target="#loginModal">Log In</button>
+          <button type="button" class="btn button-common header-signup-btn" style="font-weight: bold;"
+            data-toggle="modal" data-target="#signupModal">Sign Up</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row isSmallerScreen">
+
+      <div class="col-sm-12 col-xs-12">
+        <img src="/assets/header-logo-new.svg" class="header-logo" routerLink="/home">
+
+        <div class="search-container">
+          <input class="header-search" name="textSearch" placeholder="Search Simulations" [(ngModel)]="textSearch">
+          <i class="fas fa-search search-icon" (click)="SearchSimulations(textSearch)"></i>
+        </div>
+
+        <i id="hamburger" class="fas fa-bars" *ngIf='!isMobileLayoutMenu' (click)='hamburgerToggleFn()'></i>
+        <i class="fas fa-times" *ngIf='isMobileLayoutMenu' (click)='hamburgerToggleFn()'></i>
+
+      </div>
+
+      <div class="mobile-menu" *ngIf='isMobileLayoutMenu'>
+        <ul>
+          <li data-toggle="modal" data-target="#loginModal">
+            <a >Log in</a>
+          </li>
+          <hr>
+          <li data-toggle="modal" data-target="#signupModal">
+            <a >Sign up</a>
+          </li>
+          <hr>
+          <span>Navigation</span>
+          <hr>
+          <li routerLink='/home'>
+            <a>Home</a>
+          </li>
+          <hr>
+          <li routerLink='/personal/details'>
+            <a>Personal</a>
+          </li>
+          <hr>
+          <li routerLink='/business/details'>
+            <a>Business</a>
+          </li>
+          <hr>
+          <li routerLink='/institution/details'>
+            <a>Institution</a>
+          </li>
+          <hr>
+          <li routerLink='/partners'>
+            <a>Partner with us</a>
+          </li>
+          <hr>
+          <span>Categories</span>
+          <hr>
+          <li (click)='navigation("Finance")'>
+            <a>Finance</a>
+          </li>
+          <hr>
+          <li (click)='navigation("Marketing")'>
+            <a>Marketing</a>
+          </li>
+          <hr>
+          <li (click)='navigation("Operations")'>
+            <a>Operations</a>
+          </li>
+          <hr>
+          <li (click)='navigation("HR")'>
+            <a>HR</a>
+          </li>
+          <hr>
+          <li (click)='navigation("General Management")'>
+            <a>Management</a>
+          </li>
+          <hr>
+          <li routerLink='/products/categories'>
+            <a>View all categories</a>
+          </li>
+          <hr>
+          <li routerLink='/products'>
+            <a>View all simulation</a>
+          </li>
+          <hr>
+          <span>Support</span>
+          <hr>
+          <li routerLink='/contact'>
+            <a>Contact</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- login modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="margin-top: 10%;">
+    <div class="modal-content login-modal-container">
+      <app-login></app-login>
+    </div>
+  </div>
+</div>
+
+<!-- signup modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="margin-top: 3%;">
+    <div class="modal-content login-modal-container">
+      <app-signup></app-signup>
+    </div>
+  </div>
+</div>
+
+<!-- category dropdown modal -->
+<div class="modal fade" id="simulationDropdownModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="margin-top: 7%;margin-left: 10%;">
+    <div class="modal-content category-dropdown-modal-content">
+      <app-home-dropdown></app-home-dropdown>
+    </div>
+  </div>
+</div>
+
+<!-- Main Page Product Modal -->
+<!-- <div class="modal fade" id="main-page-prd-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document" style="margin-top: 10%; margin-right: 860px;">
+    <div class="modal-content">
+      <app-home-page-product-modal></app-home-page-product-modal>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="modal fade bd-example-modal-lg"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+          <app-home-page-product-modal></app-home-page-product-modal>
+        </div>
+    </div>
+  </div> -->
+
+<div class="modal fade bd-example-modal-xl" id="main-page-prd-modal" tabindex="-1" role="dialog"
+  aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <app-home-page-product-modal></app-home-page-product-modal>
+    </div>
+  </div>
+</div>

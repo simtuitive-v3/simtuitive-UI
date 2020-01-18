@@ -1,0 +1,23 @@
+.footer-logged-in {
+  background: #14191e;
+  text-align: center;
+  color: #b9b9b9;
+  font-size: 16px;
+  padding: 14px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.footer-link-logged {
+  margin-right: 40px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 414px) {
+  .footer-logged-in {
+    font-size: 14px;
+  }
+  .footer-link-logged {
+    margin-right: 4%;
+  }
+}

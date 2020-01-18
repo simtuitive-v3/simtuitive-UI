@@ -1,0 +1,273 @@
+<app-header></app-header>
+<div class="video-top-container mar-top-130px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="sim-category-name">
+                    {{  product_detail?.productCategories?.join(', ')}}
+                </div>
+                <div class="sim-name">
+                    {{product_detail.productTitle}}
+                </div>
+                <div class="sim-details">
+                    <span class="pad-right-45px"><i class="fas fa-signal"
+                            style="padding-right:5px"></i>{{product_detail.courseLevel}}</span>
+                    <span class="mar-right-33Cent"><i class="far fa-clock"
+                            style="padding-right:5px"></i>{{product_detail.contentDuration}}
+                        min</span>
+                </div>
+                <div class="sim-description">
+                    {{product_detail.productDescription2}}
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="sim-detail-add-btn isBiggerScreen">
+                    <div class="description-link float-right">
+                        <span>Training for a group? Try </span><br> <span class="desc-link"
+                            routerLink='/business/details'>
+                            Business </span> or <span class="desc-link" routerLink='/institution/details'>
+                            Institution
+                        </span>
+                    </div>
+                    <button type="button" class="btn button-common description-large-btn float-right"
+                        data-toggle="modal" data-target="#loginModal">Add to wishlist</button>
+                </div>
+                <div class="video-img-container">
+                    <img [src]="product_detail.productThumbNailImageUrl3" class="sim-detail-video"
+                        (click)='playOrCloseVideoFn()' [hidden]='hideImgAndIcon'>
+                    <i class="far fa-play-circle play-icon" [hidden]='hideImgAndIcon'
+                        (click)='playOrCloseVideoFn()'></i>
+
+                    <video width="700" height="400" autoplay controls controlsList="nodownload" *ngIf='hideImgAndIcon'
+                        (ended)='playOrCloseVideoFn()'>
+                        <source [src]="product_detail.productTrailerVideoUrl" type="video/mp4">
+                        <!-- <track src="../../assets/PR19_Business_Ethics [Fundamentals] [SubtitleTools.com] (1).vtt" kind="subtitles" srclang="en" label="English"> -->
+                    </video>
+                </div>
+            </div>
+            <div class="isSmallerScreen-block">
+                <div class="text-center">
+                    <button type="button" class="btn button-common description-large-btn" data-toggle="modal"
+                        data-target="#loginModal">Add to wishlist</button>
+                </div>
+                <div class="description-link">
+                    <span>Training for a group? Try </span> <span class="desc-link" routerLink='/business/details'>
+                        Business </span> or <span class="desc-link" routerLink='/institution/details'>
+                        Institution
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container isBiggerScreen">
+        <ul class="nav nav-pills mb-3 sim-detail-navbar" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="aboutSimTab-tab" data-toggle="pill" href="#aboutSimTab" role="tab"
+                    aria-controls="aboutSimTab" aria-selected="true">About this simulation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" id="businessChalTab-tab" data-toggle="pill" href="#businessChalTab"
+                    role="tab" aria-controls="businessChalTab" aria-selected="false">Business Challenges</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" id="contentTab-tab" data-toggle="pill" href="#contentTab" role="tab"
+                    aria-controls="contentTab" aria-selected="false">Content Producer</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" id="enrollmentTab-tab" data-toggle="pill" href="#enrollmentTab" role="tab"
+                    aria-controls="enrollmentTab" aria-selected="false">Enrollment Options</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="isSmallerScreen">
+        <div class="container">
+            <ul class="nav nav-pills mb-3 sim-detail-navbar" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="aboutSimTab-tab" data-toggle="pill" href="#aboutSimTab" role="tab"
+                        aria-controls="aboutSimTab" aria-selected="true">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" id="businessChalTab-tab" data-toggle="pill" href="#businessChalTab"
+                        role="tab" aria-controls="businessChalTab" aria-selected="false">Business Challenges</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" id="contentTab-tab" data-toggle="pill" href="#contentTab" role="tab"
+                        aria-controls="contentTab" aria-selected="false">Content Producer</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" id="enrollmentTab-tab" data-toggle="pill" href="#enrollmentTab" role="tab"
+                        aria-controls="enrollmentTab" aria-selected="false">Enrollment Options</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="modal fade" id="wishAddedModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="margin-top: 10%;">
+            <div class="modal-content wish-added-modal-container">
+                <div class="wish-added-heading">Thank you<i class="fas fa-times wish-added-close"
+                        data-dismiss="modal"></i>
+                </div>
+                <div class="wish-added-msg">
+                    Thank you for adding the simulation to your wishlist. You will be the first to know when
+                    this
+                    simulation is released.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="wishRejectModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="margin-top: 10%;">
+            <div class="modal-content wish-added-modal-container">
+                <div class="wish-added-heading">Wishlist<i class="fas fa-times wish-added-close"
+                        data-dismiss="modal"></i>
+                </div>
+                <div class="wish-added-msg">
+                    You have already added this product to your wishlist. Thanks for liking it again
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="tab-content">
+        <div class="tab-content sim-detail-tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="aboutSimTab" role="tabpanel" aria-labelledby="aboutSimTab-tab">
+                {{product_detail.productDescription3}}
+            </div>
+            <div class="tab-pane fade" id="businessChalTab" role="tabpanel" aria-labelledby="businessChalTab-tab">
+                <div class="business-chal-item">
+                    <div class="chal-heading">1. Understanding the data you have <i
+                            class="fas fa-minus chal-expand-icon"></i></div>
+                    <div class="chal-description">
+                        Competency : Data Cleansing Tools | Complexity : Low Before you start making decisions,
+                        check if
+                        the data is reliable. One will seldom find access to Plug & Play data. Attributes like
+                        Count,
+                        Average, Max, Min will help you determine reliability while If and Ifs will help derive
+                        the
+                        specifics you are looking for. You will use the combination of COUNT, AVERAGE, MAX, MIN,
+                        IF to
+                        solve the Capacity crisis in the Zeru Fed Zone (The Capital of the Atlantis Federation).
+                    </div>
+                </div>
+                <div class="business-chal-item">
+                    <div class="chal-heading">2. Condition based data retrieval <i
+                            class="fas fa-plus chal-expand-icon"></i></div>
+                </div>
+                <div class="business-chal-item">
+                    <div class="chal-heading">3. Database functions <i class="fas fa-plus chal-expand-icon"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="contentTab" role="tabpanel" aria-labelledby="contentTab-tab">
+                <div class="content-producer">
+                    <div class="enrol-heading">About the Content Producer</div>
+                    <!-- <div class="container">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="con-prod-img-holder">
+                                        <div class="con-prod-img"></div>
+                                        <div class="con-prod-img-label">Lorem ipsum dolor sit</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="con-prod-desc">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="enrollmentTab" role="tabpanel" aria-labelledby="enrollmentTab-tab">
+                <div class="enrol-heading">Enrollment Option</div>
+                <div class="enrol-container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="enrol-item text-center">
+                                    <img src="/assets/enrolment1.svg">
+                                    <div class="enrol-item-heading">Self Paced</div>
+                                    <div class="enrol-item-desc">Want to learn at yourpace? Buy Self paced
+                                        simulation.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mar-top-12Cent">
+                                <div class="enrol-item text-center">
+                                    <img src="/assets/enrolment2.svg">
+                                    <div class="enrol-item-heading">Assisted Learning</div>
+                                    <div class="enrol-item-desc">Want an expert guidance while you learn? Buy
+                                        Remotely
+                                        Guided simulation licence and get 10 contact session where you can
+                                        interact with
+                                        subject matter expert.</div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-4">
+                                <div class="enrol-item text-center">
+                                    <img src="/assets/enrolment3.svg">
+                                    <div class="enrol-item-heading">Instructor Lead</div>
+                                    <div class="enrol-item-desc">Love this simulation? Want to conduct this as a
+                                        classroom session?</div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="padding-top: 60px;">
+    <div class="section-heading">
+        Similar Products
+    </div>
+    <div class="card-holder isBiggerScreen">
+        <div *ngFor="let product of filteredproducts" class="simulation-card">
+            <div class="sim-img">
+                <img [src]="product.productThumbNailImageUrl1" (click)='windowScrollFn(product)'>
+            </div>
+            <div class="sim-card-name" (click)='windowScrollFn(product)'>{{product.productTitle}}</div>
+            <div class="sim-details">
+                <span><i class="fas fa-signal" style="padding-right:5px"></i>{{product.courseLevel}}</span>
+                <span><i class="far fa-clock" style="padding-right:5px"></i>{{product.contentDuration}}</span>
+            </div>
+            <div class="footer-icon">
+                <i class="fas fa-chevron-down sim-expand-icon" (click)='openViewModalFn(product)'></i>
+            </div>
+        </div>
+    </div>
+    <div class="isSmallerScreen">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <div class="card mar-bot-7Cent" *ngFor="let product of filteredproducts">
+                        <div class="card-horizontal" (click)='windowScrollFn(product)'>
+                            <div class="img-square-wrapper">
+                                <img [src]="product.productThumbNailImageUrl1" class="mobile-layout-img">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{product.productTitle}}</h4>
+                                <p class="card-text"> <span class="mobile-layout-text"><i
+                                            class="fas fa-signal"></i>{{product.courseLevel}}</span>
+                                    <br>
+                                    <br>
+                                    <span class="mobile-layout-text"><i
+                                            class="fas fa-clock"></i>{{product.contentDuration}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

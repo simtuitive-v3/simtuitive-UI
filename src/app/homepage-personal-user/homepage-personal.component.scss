@@ -1,0 +1,198 @@
+.banner-heading {
+  padding-bottom: 30px;
+  line-height: 60px;
+}
+.simulated-text {
+  font-size: 40px;
+  color: #00ebc7;
+  font-family: "Ubuntu";
+}
+.banner-text {
+  font-size: 16px;
+  color: #b9b9b9;
+  line-height: 30px;
+  padding-bottom: 70px;
+}
+
+.requestBtn {
+  background: #ff9100;
+  width: 142px;
+  height: 50px;
+  border-radius: 25px;
+  font-weight: bolder;
+}
+
+.banner-one-img-container {
+  height: 600px;
+  border: 1px solid white;
+}
+
+.banner-icon-container {
+  height: 75px;
+  width: 100px;
+  border: 1px solid white;
+  margin-bottom: 3%;
+}
+
+.requestBtn2 {
+  width: 170px;
+  height: 40px;
+  background: #ff9100;
+  font-weight: bolder;
+  border-radius: 20px;
+}
+
+.banner-img {
+  width: 390px;
+  height: 345px;
+}
+.signup-large-btn {
+  padding: 9px 35px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+.green-text {
+  color: #00ebc7;
+}
+.banner-two {
+  padding: 130px 0 60px;
+}
+.logo-img {
+  height: 25px;
+}
+.banner-two-heading {
+  color: #00ebc7;
+  font-size: 40px;
+  padding-bottom: 40px;
+  font-family: "Ubuntu";
+}
+.banner-two-text {
+  color: #b9b9b9;
+  font-size: 17px;
+  line-height: 35px;
+  width: 90%;
+}
+.banner-three {
+  height: 100vh;
+  text-align: center;
+  padding: 0 108px;
+}
+.banner-three-images {
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+.banner-three-text {
+  color: #b9b9b9;
+  font-size: 17px;
+}
+.banner-four-img-container {
+  height: 350px;
+  border: 1px solid white;
+}
+.banner-four {
+  padding-bottom: 130px;
+}
+.try-for-free-banner {
+  padding: 80px 0;
+  background: #1f2730;
+  text-align: center;
+  font-family: "Ubuntu";
+}
+.try-for-free-text {
+  font-size: 40px;
+  color: #ffffff;
+  padding-bottom: 40px;
+}
+.view-prod-signup {
+  padding: 9px 50px !important;
+  font-weight: bold !important;
+}
+.view-prod-btn {
+  margin-right: 64px;
+  border: 1px solid #ff9100 !important;
+  padding: 9px 28px !important;
+}
+.banner-two-img {
+  position: absolute;
+  left: -70px;
+  margin-top: 150px;
+}
+.banner-text-head {
+  font-size: 20px;
+  color: #00ebc7;
+  line-height: 30px;
+  padding-bottom: 15px;
+  padding-top: 20px;
+}
+
+.logos-text {
+  margin-top: 73px;
+}
+
+.pad-left-100px {
+  padding-left: 100px;
+}
+
+.isSmallerScreen,
+.isSmallerScreen-block {
+  display: none;
+}
+
+// Responsive logic here onwards
+@media only screen and (max-width: 414px) {
+  .isBiggerScreen {
+    display: none;
+  }
+  .isSmallerScreen {
+    display: inline;
+  }
+  .isSmallerScreen-block {
+    display: block;
+  }
+  .banner-two-text {
+    font-size: 15px;
+  }
+  .simulated-text {
+    font-size: 25px;
+    width: 102%;
+    text-align: center;
+  }
+  .banner-text {
+    padding-bottom: 0;
+  }
+  .mobile-view-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    align-items: center;
+  }
+  .banner-two-heading {
+    font-size: 25px;
+    margin-top: 40px;
+  }
+  .banner-four {
+    padding-bottom: 25px;
+  }
+  .mar-top-bot-60px {
+    margin: 60px 0;
+  }
+  .banner-two-img {
+    position: static;
+    width: 258px;
+    display: block;
+    margin: 20% auto;
+  }
+  .banner-two {
+    padding: 0;
+  }
+  .pad-left-100px {
+    padding-left: 25px;
+    text-align: center;
+  }
+  .mobile-banner-text {
+    width: 98%;
+    margin-bottom: 60px;
+  }
+}

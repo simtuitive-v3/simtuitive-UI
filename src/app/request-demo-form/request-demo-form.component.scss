@@ -1,0 +1,152 @@
+h1 {
+  font-size: 50px;
+  color: #00ebc7;
+  font-family: "Ubuntu";
+  margin-top: 82px;
+}
+
+h2 {
+  color: white;
+  margin-top: 30px;
+  font-family: "Ubuntu";
+  font-size: 30px;
+}
+
+p {
+  color: white;
+  line-height: 30px;
+  width: 493px;
+  margin-top: 30px;
+}
+
+.trustWorthy {
+  margin: 216px 0 0 0;
+  font-size: 14px;
+}
+
+.isEmpty {
+  border: 1px solid #ff5656;
+}
+
+.brand-logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  width: 600px;
+  height: 50px;
+  padding-left: 10px;
+  background: transparent;
+  border: 1px solid #485054;
+  color: #4e4e4e;
+}
+
+textarea {
+  padding: 14px 0 0 14px;
+  background: transparent;
+  color: #4e4e4e;
+  border: 1px solid #485054;
+}
+
+#signUpCheckBox {
+  width: 18px;
+  height: 18px;
+  background: #485054;
+}
+
+.signUpCheckBox {
+  color: white;
+  font-size: 13px;
+  margin-left: 13px;
+  width: 312px;
+}
+
+.getInTouchBtn {
+  background: #ff9100;
+  width: 445px;
+  height: 50px;
+  border-radius: 25px;
+  opacity: 1;
+  font-weight: bolder;
+  font-size: 17px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.width-200px {
+  width: 200px;
+}
+
+input[type="checkbox"] {
+  vertical-align: top;
+  background: green;
+}
+
+select {
+  -moz-appearance: none; /* Firefox */
+  -webkit-appearance: none; /* Safari and Chrome */
+  appearance: none;
+}
+
+.dropdown-icon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 21px;
+  color: #707070;
+}
+select::-ms-expand {
+  display: none;
+}
+.isSmallerScreen {
+  display: none;
+}
+
+// Responsive styles/Logic starts from here
+@media only screen and (max-width: 414px) {
+  .isBiggerScreen {
+    display: none;
+  }
+  .isSmallerScreen {
+    display: inline;
+  }
+  .mobile-view-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    align-items: center;
+  }
+  .form-top {
+    margin-top: 50px;
+  }
+  h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 25px;
+    text-align: center;
+  }
+  .mobile-main-text {
+    text-align: center;
+    width: 100%;
+  }
+  .trustWorthy {
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    color: #00ebc7;
+  }
+  .mobile-first-name {
+    margin-bottom: 5%;
+  }
+  .mar-top-60px {
+    margin-top: 30px;
+  }
+  .getInTouchBtn {
+    width: 330px
+  }
+}

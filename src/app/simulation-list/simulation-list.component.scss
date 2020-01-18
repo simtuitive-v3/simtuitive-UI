@@ -1,0 +1,184 @@
+.prd-drpDwn-add-wishlist {
+  margin-right: 25px;
+  background: #ff9100 !important;
+  font-weight: 700;
+  border-radius: 20px;
+  padding-left: 21px;
+  padding-right: 21px;
+}
+
+.isSmallerScreen {
+  display: none;
+}
+
+@media only screen and (max-width: 414px) {
+  .isBiggerScreen {
+    display: none;
+  }
+  .isSmallerScreen {
+    display: inline;
+  }
+  .normal-view-margin-top {
+    margin-top: 28%;
+  }
+  .fas {
+    font-size: 13px;
+    color: #848484;
+    margin-right: 3%;
+  }
+  .mobile-layout-text {
+    color: #b9b9b9;
+  }
+  .card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+  }
+  .card {
+    background: #0c1014;
+    width: 300px;
+    border: 1px solid #485054;
+    min-width: 343px;
+    border-radius: 0;
+    padding: 5px;
+  }
+  .mobile-layout-img {
+    width: 130px;
+  }
+  .img-square-wrapper {
+    margin-right: 2%;
+  }
+  .card-title {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 13%;
+  }
+  .card-body {
+    padding: 1%;
+  }
+  .col-12 {
+    padding: 0;
+  }
+  .card-text {
+    font-size: 13px;
+  }
+
+  .mobile-filter-container {
+    border-radius: 3px;
+    margin-top: 30px;
+  }
+  .mobile-filter-btn {
+    background-color: #1f2730;
+    border-radius: 3px;
+    color: #b9b9b9;
+    font-size: 13px;
+    padding: 8px 15px 8px 35px;
+    width: 30%;
+    margin-right: 25px;
+    display: inline-block;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .mobile-layOut-clearAll {
+    font-size: 13px;
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #ff9100;
+  }
+  .mobile-filter-icon {
+    position: absolute;
+    right: 11px;
+    top: 11px;
+  }
+  .mobile-filter-side-bar {
+    position: fixed;
+    width: 68%;
+    background: #0c1014;
+    top: 0px;
+    right: 0px;
+    height: 500px;
+    z-index: 99;
+    padding: 30px 20px;
+    height: 565px;
+  }
+  .mobile-filter-side-bar > span {
+    color: white;
+    font-size: 13px;
+    font-family: "Nunito";
+    font-weight: 450;
+  }
+  .mobile-filter-side-bar > hr {
+    border: 1px solid #1c2326;
+  }
+  .accordion {
+    min-height: 425px;
+  }
+  .accordion > div {
+    border: none;
+    padding: 0;
+  }
+  .card-header {
+    padding: 0;
+    margin: 0;
+  }
+  .mb-0 {
+    position: relative;
+  }
+  .mb-0 > button {
+    padding: 0;
+    font-size: 13px;
+    color: white;
+  }
+  .mb-0 > i {
+    position: absolute;
+    right: 34%;
+    top: 38%;
+  }
+  #collapseOne > div > input {
+    vertical-align: middle;
+  }
+
+  #collapseOne > div > label,
+  #collapseTwo > div > label,
+  #collapseThree > div > label,
+  #collapseFour > div > label {
+    color: #b9b9b9;
+    font-size: 13px;
+    margin-left: 3%;
+  }
+  .done-btn-div {
+    padding: 15px;
+    border-top: 1px solid #1c2326;
+  }
+  .done-btn-div > button {
+    background: #ff9100;
+    border-radius: 50px;
+    padding: 4px;
+    width: 45%;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .wish-added-close {
+    color: #ff5656;
+  }
+  .filter-check-label {
+    padding: 0;
+  }
+  .modal-done-btn {
+    display: block;
+    background: #ff9100;
+    border-radius: 50px;
+    padding: 4px;
+    width: 45%;
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 15%;
+  }
+  .wish-added-modal-container {
+    width: 78%;
+    margin: auto;
+    height: 204px;
+  }
+  .wish-added-heading {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,439 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+body {
+  background: #0c1014;
+  font-family: "Nunito";
+  // font-family: 'Ubuntu', sans-serif;
+}
+.p0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.button-common {
+  background: #ff9100 !important;
+  color: #0c1014 !important;
+  font-size: 13px !important;
+  padding: 6px 21px !important;
+  cursor: pointer;
+}
+.color-common {
+  color: #ff9100 !important;
+}
+.page-header {
+  // padding: 50px 0;
+  color: white;
+  font-family: "Ubuntu", "Regular";
+  font-size: 20px;
+}
+.form-control {
+  background: transparent;
+  color: #848484;
+  padding: 14px 15px;
+  font-size: 16px;
+  border: 1px solid #485054;
+  border-radius: 3px;
+  height: 50px;
+}
+.form-control:focus {
+  background-color: transparent;
+  box-shadow: 0 0 0 0;
+  border-color: #485054;
+  color: #848484;
+}
+.btn-link {
+  text-decoration: none !important;
+}
+::-webkit-scrollbar {
+  width: 2px;
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #979696;
+  // border: 5px solid #555555;
+}
+::-webkit-scrollbar-track {
+  // -webkit-box-shadow: inset 0 0 6px rgba(73, 73, 73, 0.1);
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.btn:focus,
+.btn.focus {
+  outline: 0;
+  box-shadow: none;
+}
+input:focus,
+div:focus,
+img:focus,
+span:focus {
+  outline: none;
+}
+.section-heading {
+  font-family: "Ubuntu";
+  color: #ffffff;
+  font-size: 20px;
+  padding-top: 36px;
+  position: relative;
+  width: 95%;
+  padding-bottom: 36px;
+}
+.heading-see-all {
+  font-size: 16px;
+  color: #ff9100;
+  position: absolute;
+  right: 0;
+  font-family: "Nunito";
+  cursor: pointer;
+}
+.logged-in-margin-top {
+  margin-top: 80px;
+}
+.normal-view-margin-top {
+  margin-top: 175px;
+}
+
+.simulated-text {
+  font-size: 40px;
+  color: #00ebc7;
+  font-family: "Ubuntu";
+}
+
+// simulation card
+
+.card-holder {
+  display: flex;
+  flex-wrap: wrap;
+}
+.simulation-card {
+  width: 230px;
+  margin-bottom: 55px;
+  border: 1px solid #485054;
+  padding: 10px 10px 0 10px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-right: 4%;
+}
+.empty-simulation-card {
+  width: 230px;
+  height: 335px;
+  margin-bottom: 55px;
+  border: 1px solid #485054;
+  padding: 10px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.explore-sim-btn {
+  border-radius: 20px;
+  font-size: 16px !important;
+  position: absolute;
+  bottom: 25px;
+  left: 20px;
+}
+.no-sim-text {
+  color: #848484;
+}
+.sim-img {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 10px;
+}
+.sim-card-name {
+  font-size: 20px;
+  color: white;
+  min-height: 90px;
+}
+.footer-icon {
+  text-align: center;
+  // position: absolute;
+  bottom: 5px;
+  // margin-left: 43%;
+}
+.sim-expand-icon {
+  color: #00ebc7;
+  font-size: 16px;
+}
+.sim-details {
+  font-size: 13px;
+  color: #848484;
+  display: flex;
+  justify-content: space-between;
+}
+
+// simulation list filter
+
+.filter-container {
+  background-color: #070b0f;
+  border-radius: 3px;
+  padding: 20px 30px;
+  margin-top: 30px;
+  margin-bottom: 2%;
+  width: 95%;
+  // display: flex;
+}
+.filter {
+  background-color: #1f2730;
+  border-radius: 3px;
+  color: #b9b9b9;
+  font-size: 13px;
+  padding: 8px 15px;
+  position: relative;
+  width: 130px;
+  margin-right: 30px;
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.clearALl {
+  font-size: 13px;
+  padding: 8px 15px;
+  position: relative;
+  width: 130px;
+  margin-right: 30px;
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 20px;
+  color: #ff9100;
+}
+.filter-icon {
+  position: absolute;
+  right: 8px;
+  top: 10px;
+}
+.sort-btn {
+  color: #b9b9b9;
+  font-size: 13px;
+  float: right;
+  position: relative;
+  width: 70px;
+  padding-top: 5px;
+  cursor: pointer;
+}
+.form-top {
+  margin-top: 130px;
+}
+
+.category-filter-container {
+  // padding-top: 30px;
+  display: flex;
+}
+.filter-check-label {
+  font-size: 13px;
+  color: #b9b9b9;
+  padding-right: 40px;
+}
+
+.main input:checked ~ .filter-check-label {
+  background-color: #070b0f;
+}
+.filter-check-label:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.main .filter-check-label:after {
+  left: 8px;
+  bottom: 5px;
+  width: 6px;
+  height: 12px;
+  border: solid #00ebc7;
+  border-width: 0 4px 4px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.dropdown-toggle::after {
+  border: none !important;
+}
+
+.ifInputIsEmpty {
+  border: 1px solid #ff5656;
+}
+
+.form-modal-container,
+.dup-prd-modal-container,
+.wish-added-modal-container {
+  padding: 30px 40px;
+  background-color: #0c1014;
+  text-align: center;
+}
+
+.form-heading,
+.dup-prd-heading,
+.wish-added-heading {
+  color: white;
+  font-size: 25px;
+  font-family: "Ubuntu";
+  padding-bottom: 17px;
+}
+.login-modal-container {
+  padding: 30px 40px;
+  background-color: #0c1014;
+  text-align: center;
+}
+.form-close,
+.dup-prd-close,
+.wish-added-close {
+  float: right;
+  color: #ff5656;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.form-msg,
+.dup-prd-msg,
+.wish-added-msg {
+  font-size: 16px;
+  color: white;
+}
+
+.brand-logos {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 890px;
+  flex-wrap: wrap;
+  margin: auto;
+}
+.logos-text {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 20px;
+  font-family: "Ubuntu";
+}
+
+// product dropdown
+.product-drpdwn-menu {
+  padding: 0 !important;
+  // width: 1310px;
+  z-index: 999;
+  opacity: 1;
+}
+.product-expand-view {
+  padding: 30px;
+  background-color: #14191e;
+}
+.product-exp-heading {
+  font-size: 35px;
+  font-family: "Ubuntu";
+  margin-bottom: 20px;
+  color: white;
+}
+.product-exp-close {
+  font-size: 16px;
+  float: right;
+  color: #ff5656;
+  cursor: pointer;
+}
+.product-drpdwn-img {
+  width: 800px;
+  height: 450px;
+  margin-right: 40px;
+}
+.product-drpdwn-icons {
+  font-size: 13px;
+  color: #848484;
+  display: flex;
+}
+.prod-drpdwn-desc {
+  margin-top: 20px;
+  font-size: 16px;
+  color: white;
+  line-height: 30px;
+  font-weight: 300;
+}
+.product-drpdwn-btn-holder {
+  text-align: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.prod-drpdwn-add-wishlist {
+  color: white !important;
+  border-color: white !important;
+  margin-right: 30px;
+}
+.prod-drpdwn-learn-btn {
+  border-radius: 20px;
+  font-size: 16px !important;
+  font-weight: bold;
+}
+
+.drpdwn-sim-items-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.brand-logos-form-page {
+  display: flex;
+  justify-content: space-between;
+  width: 380px;
+  float: left;
+  padding-top: 25px;
+}
+
+.mar-bot-130px {
+  margin-bottom: 130px;
+}
+
+.mar-bot-40px {
+  margin-bottom: 40px;
+}
+
+.pad-bot-130px {
+  padding-bottom: 130px;
+}
+.mar-bot-60px {
+  margin-bottom: 60px;
+}
+
+.pad-top-82px {
+  padding-top: 82px;
+}
+
+.pad-bot-70px {
+  padding-bottom: 70px;
+}
+
+.pad-top-bot-130px {
+  padding: 130px 0;
+}
+
+.mar-top-130px {
+  margin-top: 130px;
+}
+
+.mar-top-75px {
+  margin-top: 75px;
+}
+.mar-top-15px {
+  margin-top: 15px;
+}
+
+.mar-top-120px {
+  margin-top: 120px;
+}
+
+.mar-top-60px {
+  margin-top: 60px;
+}
+
+.mar-right-4Cent {
+  margin-right: 4%;
+}
+
+.mar-bot-7Cent {
+  margin-bottom: 7%;
+}
+
+.mar-bot-75px {
+  margin-bottom: 75px;
+}

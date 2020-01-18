@@ -1,0 +1,47 @@
+<div class="footer">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-12">
+                <img class="footer-img" src="/assets/footer-logo.png">
+            </div>
+            <div class="col-md-9 col-12 p0">
+                <div class="footer-holder">
+                    <div class="footer-link-holder">
+                        <span class="footer-heading">Solutions</span>
+                        <span class="footer-link" routerLink="/personal/details">Personal</span>
+                        <span class="footer-link" routerLink="/business/details">Business</span>
+                        <span class="footer-link" routerLink="/institution/details">Institutions</span>
+                        <span class="footer-link" routerLink="/partners">Partner with us</span>
+                    </div>
+
+                    <div class="footer-link-holder">
+                        <span class="footer-heading">Categories</span>
+                        <span *ngFor="let category of masterCategory" (click)="navigation(category)"
+                            class="footer-link">{{category}}</span>
+                    </div>
+                    <div class="footer-link-holder" >
+                        <span class="footer-heading">Connect</span>
+                        <a style="text-decoration: none;"  class="footer-link" href="https://twitter.com/simtuitive"target="_blank">Twitter</a>
+                        <a style="text-decoration: none;" class="footer-link" href="https://www.instagram.com/simtuitive_sim/" target="_blank">Instagram</a>
+                        <a style="text-decoration: none;" class="footer-link" href="https://www.facebook.com/simtuitive/"target="_blank">Facebook</a>
+                        <a style="text-decoration: none;" class="footer-link" href="https://www.linkedin.com/company/simtuitive"target="_blank">LinkedIn</a>
+                        <a style="text-decoration: none;" class="footer-link"  href="https://www.youtube.com/channel/UC3m3pnO4v9yHW6FlzQZrJeg?view_as=subscriber"target="_blank">YouTube</a>
+                    </div>
+                    <div class="footer-link-holder">
+                        <span class="footer-heading">Support</span>
+                        <span class="footer-link" routerLink='/contact'>Contact</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+
+            </div>
+
+            <div class="footer-bottom-text">
+                Simtuitive is a brand owned and operated by
+                <a href="https://skilldepth.com/"target="_blank" ><img class="footer-img-bot" src="/assets/skilldepth-logo-blue-footer.png"></a>
+            </div>
+        </div>
+    </div>
+</div>

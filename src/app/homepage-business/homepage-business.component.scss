@@ -1,0 +1,237 @@
+.banner-heading {
+  padding-bottom: 30px;
+  line-height: 60px;
+}
+.banner-text {
+  font-size: 16px;
+  color: #b9b9b9;
+  line-height: 30px;
+  padding-bottom: 70px;
+  width: 90%;
+}
+
+.requestBtn {
+  background: #ff9100;
+  width: 158px;
+  height: 50px;
+  font-weight: bolder;
+  border-radius: 25px;
+}
+
+.banner-one-img-container {
+  height: 600px;
+  border: 1px solid white;
+}
+
+.banner-icon-container {
+  height: 75px;
+  width: 100px;
+  border: 1px solid white;
+  margin-bottom: 3%;
+}
+
+.requestBtn2 {
+  width: 170px;
+  height: 40px;
+  background: #ff9100;
+  font-weight: bolder;
+  border-radius: 20px;
+}
+
+// .watch-demo-icon {
+//   padding: 16px 14px 15px 20px;
+//   border-radius: 50%;
+//   border: 1px solid #707070;
+// }
+// .play-icon {
+//   color: #ffffff;
+//   font-size: 18px;
+// }
+.banner-img {
+  width: 390px;
+  height: 345px;
+}
+.signup-large-btn {
+  padding: 9px 35px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+.green-text {
+  color: #00ebc7;
+}
+.banner-two {
+  padding: 0 108px;
+  padding-bottom: 160px;
+}
+.logo-img {
+  height: 25px;
+}
+.banner-two-heading {
+  color: #ffffff;
+  font-size: 40px;
+  padding-bottom: 40px;
+  font-family: "Ubuntu";
+}
+.banner-two-text {
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 35px;
+  width: 95%;
+}
+.banner-three {
+  height: 100vh;
+  text-align: center;
+  padding: 0 108px;
+}
+.banner-three-images {
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+.banner-three-text {
+  color: #b9b9b9;
+  font-size: 17px;
+}
+.banner-four-img-container {
+  height: 350px;
+  border: 1px solid white;
+}
+.banner-four {
+  padding-top: 130px;
+}
+.try-for-free-banner {
+  padding: 80px 0;
+  background: #1f2730;
+  text-align: center;
+}
+.try-for-free-text {
+  font-size: 40px;
+  color: #ffffff;
+  padding-bottom: 40px;
+  font-family: "Ubuntu";
+}
+.view-prod-signup {
+  padding: 9px 50px !important;
+  font-weight: bold !important;
+}
+.view-prod-btn {
+  margin-right: 64px;
+  border: 1px solid #ff9100 !important;
+  padding: 9px 28px !important;
+}
+
+.green-text {
+  color: #00ebc7;
+}
+.banner-two {
+  padding: 0 108px;
+  padding-bottom: 160px;
+}
+
+.brand-logos {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.logo-img {
+  height: 25px;
+}
+.banner-two-heading {
+  color: #ffffff;
+  font-size: 40px;
+  padding-bottom: 40px;
+  font-family: "Ubuntu";
+}
+.banner-three {
+  height: 100vh;
+  text-align: center;
+  padding: 0 108px;
+}
+.banner-three-images {
+  padding-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+.banner-three-text {
+  color: #b9b9b9;
+  font-size: 17px;
+}
+
+.try-for-free-banner {
+  padding: 80px 0;
+  background: #1f2730;
+  text-align: center;
+}
+.try-for-free-text {
+  font-size: 40px;
+  color: #ffffff;
+  padding-bottom: 40px;
+  font-family: "Ubuntu";
+}
+.view-prod-signup {
+  padding: 9px 50px !important;
+  font-weight: bold !important;
+}
+.view-prod-btn {
+  margin-right: 64px;
+  border: 1px solid #ff9100 !important;
+  padding: 9px 28px !important;
+}
+.isSmallerScreen {
+  display: none;
+}
+
+@media only screen and (max-width: 414px) {
+  .isBiggerScreen {
+    display: none;
+  }
+  .banner-text {
+    width: 100%;
+  }
+  .isSmallerScreen {
+    display: inline;
+  }
+  .normal-view-margin-top {
+    margin-top: 33%;
+  }
+  .simulated-text {
+    font-size: 25px;
+    text-align: center;
+  }
+  .banner-heading {
+    line-height: 30px;
+  }
+  .mobile-img-one {
+    margin: auto;
+    display: block;
+  }
+  .requestBtn {
+    width: 175px;
+    height: 40px;
+    margin: auto;
+    display: block;
+  }
+  .mobile-view-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 25px;
+    align-items: center;
+  }
+  .banner-four {
+    padding-top: 20%;
+  }
+  .mobile-layout-text-title {
+    text-align: left;
+  }
+  .banner-two-text {
+    font-size: 16px;
+    margin-bottom: 10%;
+  }
+  .mobile-img-two {
+    width: 230px;
+    display: block;
+    margin: auto;
+  }
+}

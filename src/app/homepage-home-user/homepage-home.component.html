@@ -1,0 +1,284 @@
+<app-logged-in-header></app-logged-in-header>
+<div class="container mar-top-120px">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="banner-content">
+                <div class="banner-heading">
+                    <div class="simulated-text">Gain valuable in-demand skills with Simtuitive simulation training</div>
+                </div>
+                <div class="banner-img-container isSmallerScreen">
+                    <img src="/assets/Layer 2.svg" width="166">
+                </div>
+                <div class="banner-text">
+                    Our simulated training courses help you bridge the gap between
+                    training and real-life experience. The benefits are invaluable,
+                    preparing you for work like no other type of online training.
+                </div>
+                <div class="banner-btn-container isBiggerScreen">
+                    <span class="watch-demo-icon" (click)='openVideoModalFn()'><i
+                            class="fas fa-play play-icon"></i></span>
+                    <button type="button" class="btn btn-link home-banner-btn" (click)='openVideoModalFn()'>Why
+                        Simtuitive?</button>
+                </div>
+                <div class="isSmallerScreen-block">
+                    <button type="button" class="btn btn-link home-banner-btn" style="display: block; margin:5% auto;"
+                        (click)='videofn()'>Why
+                        Simtuitive?</button>
+                    <video class="mobile-video" width="300" controls controlsList="nodownload">
+                        <source
+                            src="https://simtuitive-assets-0001.s3.ap-south-1.amazonaws.com/vid-1577359343199-Explainer_Video.mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4 isBiggerScreen">
+            <div style="float:right" class="banner-img-container">
+                <img src="/assets/Layer 2.svg" class="banner-img">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content video-dropdown-modal-content">
+                <div class="close-btn">
+                    <span class="text-simtuitive">Why Simtuitive?</span>
+                    <i class="fas fa-times login-close" data-dismiss="modal" (click)='pauseVideoFn()'></i>
+                </div>
+                <div class="video-block">
+                    <video width="700" height="400" controls controlsList="nodownload" #videoPlayer>
+                        <source
+                            src="https://simtuitive-assets-0001.s3.ap-south-1.amazonaws.com/vid-1577359343199-Explainer_Video.mp4"
+                            type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logos-text">
+        <span class="green-text">Trusted by users globally</span>
+    </div>
+    <div class="brand-logos isBiggerScreen">
+        <img src="/assets/clientLogo1.png" style="width:119px;height:29px">
+        <img src="/assets/clientLogo6.png" style="width:105px;height:28px">
+        <img src="/assets/clientLogo4.png" style="width:92px;height:29px">
+        <img src="/assets/clientLogo3.png" style="width:87px;height:28px">
+        <img src="/assets/clientLogo2.png" style="width:170px;height:28px">
+        <img src="/assets/clientLogo5.png" style="width:80px;height:28px">
+    </div>
+    <div class="isSmallerScreen">
+        <div class="mobile-view-logos">
+            <img src="/assets/clientLogo1.png" style="width:100px">
+            <img src="/assets/clientLogo6.png" style="width:90px">
+            <img src="/assets/clientLogo4.png" style="width:75px">
+        </div>
+        <div class="mobile-view-logos">
+            <img src="/assets/clientLogo3.png" style="width:65px">
+            <img src="/assets/clientLogo2.png" style="width:150px">
+            <img src="/assets/clientLogo5.png" style="width:70px">
+        </div>
+    </div>
+</div>
+
+<div class="container banner-two">
+    <div class="row">
+        <div class="col-md-6 isBiggerScreen">
+            <img src="/assets/Feat.svg" width="475">
+        </div>
+        <div class="col-md-6">
+            <div class="banner-two-heading mar-top-60px">
+                Integrated dashboard,
+                analytics & course Data
+            </div>
+            <div class="banner-two-text">
+                When you sign up to Simtuitive, you receive our online
+                dashboard for free. Businesses and Institutions retrieve
+                insights and analytics about employees and students.
+                Personal users can track pathways, receive course
+                recommendations and visualise progress.
+            </div>
+        </div>
+        <div class="col-md-6 isSmallerScreen text-center mar-top-15Cent">
+            <img src="/assets/Feat.svg" width="250">
+        </div>
+    </div>
+</div>
+
+<div class="container text-center isBiggerScreen">
+    <div class="banner-two-heading">
+        Features
+    </div>
+    <div class="banner-three-img-holder">
+        <div>
+            <img src="/assets/banner3-one.svg">
+            <div class="feature-heading">Gamification</div>
+        </div>
+        <div>
+            <img src="/assets/banner3-two.svg">
+            <div class="feature-heading">Course dashboard and analytics</div>
+        </div>
+        <div>
+            <img src="/assets/banner3-three.svg">
+            <div class="feature-heading mar-top-15px">Verifiable certificates</div>
+        </div>
+    </div>
+    <div class="banner-three-images">
+        <span class="banner-three-text">Gamification of training provides an
+            immersive and engaging experience of
+            learning. Apply techniques to real-world
+            situations with our simulated training.
+            Gain badges, earn points, and feel inspired
+            to continue learning and applying new skills.</span>
+        <span class="banner-three-text">Our courses come with an integrated
+            digital learner dashboard. You can
+            access analytics and insights on the
+            courses you have completed, view
+            course recommendations, and follow
+            learning paths.</span>
+        <span class="banner-three-text">Once you have completed an online
+            course with Simtuitive you will receive
+            a completion certificate that is easily
+            verifiable online. Showcase your
+            certificates on LinkedIn to amplify
+            your expertise.</span>
+    </div>
+</div>
+
+<div class="isSmallerScreen">
+    <div class="container text-center">
+        <div class="text-center banner-two-heading">
+            Features
+        </div>
+        <div class="mobile-layOut-img">
+            <img src="/assets/banner3-one.svg" width="94">
+        </div>
+
+        <div class="banner-three-text">
+            Gamification of training provides an
+            immersive and engaging experience of
+            learning. Apply techniques to real-world
+            situations with our simulated training.
+            Gain badges, earn points, and feel inspired
+            to continue learning and applying new skills.
+        </div>
+
+        <div class="mobile-layOut-img mar-top-15Cent">
+            <img src="/assets/banner3-two.svg" width="94">
+        </div>
+
+        <div class="banner-three-text">
+            Our courses come with an integrated
+            digital learner dashboard. You can
+            access analytics and insights on the
+            courses you have completed, view
+            course recommendations, and follow
+            learning paths.
+        </div>
+
+        <div class="mobile-layOut-img mar-top-15Cent">
+            <img src="/assets/banner3-three.svg" width="94">
+        </div>
+
+        <div class="banner-three-text">
+            Once you have completed an online
+            course with Simtuitive you will receive
+            a completion certificate that is easily
+            verifiable online. Showcase your
+            certificates on LinkedIn to amplify
+            your expertise.
+        </div>
+    </div>
+</div>
+
+
+<div class="container banner-four">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="banner-two-heading">
+                Refreshing, interactive
+                learning experience
+            </div>
+            <div class="banner-two-text">
+                Gain professional and personal skills in an unseen way. Our
+                hands-on training programs guide you through four stages:
+                Study, Skill-up, Simulate, and ScoreCard.<br><br>
+                You start the course with a business case in the Study phase,
+                followed by Skill-up, where you acquire vital skills. You then move
+                on to the Simulate phase to practice what you have learned, while
+                the ScoreCard displays your learning progress. When you are
+                ready, you finish the course by completing the online assessment.
+                Upon completion you will receive a certificate of learning.
+            </div>
+        </div>
+        <div class="col-md-6 isBiggerScreen">
+            <img src="/assets/home-banner4.svg" class="mar-top-75px" width="475">
+        </div>
+        <div class="col-md-6 isSmallerScreen text-center">
+            <img src="/assets/home-banner4.svg" class="mar-top-75px" width="254">
+        </div>
+    </div>
+</div>
+
+<div class="container banner-four">
+    <div class="row">
+        <div class="col-md-6 isBiggerScreen">
+            <img src="/assets/home-banner5.svg" width="475">
+        </div>
+        <div class="col-md-6">
+            <div class="banner-two-heading">
+                Study anything, anywhere
+            </div>
+            <div class="banner-two-text">
+                We believe gamification is the future of business courses online.
+                This is why we aim to offer courses that build and develop users
+                in a way that everyone can benefit from.<br><br>
+                Develop essential skills through our business simulated training
+                courses. Categories include Strategic Leadership, Problem
+                Solving, Decision Making, Financial Analysis, Market Analysis,
+                Operations Management, People Management, and Change
+                Management.
+            </div>
+        </div>
+        <div class="col-md-6 isSmallerScreen text-center">
+            <img src="/assets/home-banner5.svg" class="mar-top-75px" width="256">
+        </div>
+    </div>
+</div>
+
+<div class="container banner-four">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="banner-two-heading">
+                Flexibility of delivery
+            </div>
+            <div class="banner-two-text">
+                Our courses are self-paced. Complete the simulated training
+                courses at a time and place that is most convenient for you.<br><br>
+                We also offer Assisted Learning for Businesses and institutions.
+                We can send a facilitator or SME to your location to teach to your
+                group directly.
+            </div>
+        </div>
+        <div class="col-md-6 isBiggerScreen">
+            <img src="/assets/home-banner6.svg" width="475">
+        </div>
+        <div class="col-md-6 isSmallerScreen text-center">
+            <img src="/assets/home-banner6.svg" class="mar-top-75px" width="244">
+        </div>
+    </div>
+</div>
+
+<div class="try-for-free-banner">
+    <div class="try-for-free-text">Explore Our Simulations</div>
+    <div>
+        <button type="button" class="btn  color-common view-prod-btn" routerLink="/user/allProducts">View
+            Simulations</button>
+    </div>
+</div>
+
+<div style="margin-top: 50px;">
+    <app-logged-in-footer></app-logged-in-footer>
+</div>

@@ -1,0 +1,125 @@
+<app-logged-in-header></app-logged-in-header>
+<div class="container form-top">
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <h1>Get your Demo</h1>
+
+            <h2>Empower your employees with our products</h2>
+
+            <p class="mobile-main-text">Get in touch with us today to discuss how Simtuitive products can help your employees bridge the gap
+                between learning concepts and real-world application.</p>
+
+            <p class="trustWorthy">Trusted by users globally</p>
+
+            <div class="brand-logos-form-page">
+                <img src="/assets/clientLogo1.png" style="width:119px;height:29px">
+                <img src="/assets/clientLogo6.png" style="width:105px;height:28px">
+                <img src="/assets/clientLogo4.png" style="width:92px;height:29px">
+            </div>
+            <br>
+            <div class="brand-logos-form-page">
+                <img src="/assets/clientLogo3.png" style="width:87px;height:28px">
+                <img src="/assets/clientLogo2.png" style="width:170px;height:28px">
+                <img src="/assets/clientLogo5.png" style="width:80px;height:28px">
+            </div>
+
+        </div>
+
+        <div class="col-md-1">
+
+        </div>
+
+        <div class="col-md-5 mar-top-60px">
+
+            <div>
+
+                <div class="form-row mb-3">
+
+                    <div class="col-md-5">
+                        <input type="text" class="form-control mobile-first-name"
+                            [ngClass]="{'ifInputIsEmpty': isInputEmpty && !fName}" placeholder="First name"
+                            [(ngModel)]='fName' required>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control" placeholder="Last name" [(ngModel)]='lName'>
+                    </div>
+
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" [ngClass]="{'ifInputIsEmpty': isInputEmpty && !compEMail}"
+                        placeholder="Company email" [(ngModel)]='compEMail' required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="phone" class="form-control" [ngClass]="{'ifInputIsEmpty': isInputEmpty && !phNum}"
+                        placeholder="Phone Number" [(ngModel)]='phNum' required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" [ngClass]="{'ifInputIsEmpty': isInputEmpty && !compName}"
+                        placeholder="Company name" [(ngModel)]='compName' required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" [ngClass]="{'ifInputIsEmpty': isInputEmpty && !compWeb}"
+                        placeholder="Company website" [(ngModel)]='compWeb' required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" [ngClass]="{'ifInputIsEmpty': isInputEmpty && !compRole}"
+                        placeholder="Your role position in your company" [(ngModel)]='compRole' required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <select [ngClass]="{'isEmpty': isInputEmpty && howDidYouHear == ''}" [(ngModel)]='howDidYouHear'
+                        required>
+                        <option value="">How did you hear about Simtutive?</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Email">Email</option>
+                        <option value="Web Search">Web Search</option>
+                        <option value="YouTube Ad">YouTube Ad</option>
+                        <option value="Friend or Colleague">Friend or Colleague</option>
+                        <option value="Newspaper or Magazine">Newspaper or Magazine</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </div>
+
+                <div class="input-group mb-3">
+                    <textarea cols="60" rows="4" [ngClass]="{'isEmpty': isInputEmpty && !explainRequirs}"
+                        placeholder="Briefly explain the business requirement?" [(ngModel)]='explainRequirs'
+                        required></textarea>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="signUpCheckBox" [(ngModel)]='receiveNews'>
+                    <label for="signUpCheckBox" class="signUpCheckBox">I’d like to receive news, insights, and
+                        promotions from Simtutive Business</label>
+                </div>
+
+                <div class="mobile-text-center">
+                    <button class="btn getInTouchBtn" (click)='getInTouchFn()'>Get in touch</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="reqFormModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="margin-top: 10%;">
+            <div class="modal-content form-modal-container">
+                <div class="form-heading">Enquiry<i class="fas fa-times form-close" data-dismiss="modal"></i>
+                </div>
+                <div class="form-msg">
+                    Thank you for your enquiry. One of our staff will be in touch with you within 24 hours.
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

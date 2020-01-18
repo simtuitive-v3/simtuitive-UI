@@ -1,0 +1,89 @@
+<div *ngIf="signupView">
+    <div class="login-heading">Sign Up <i class="fas fa-times login-close" data-dismiss="modal"></i></div>
+    <div class="login-google" (click)="signInWithGoogle()">
+        <img src="/assets/google-logo.png" style="padding-right: 15px;">Continue with Google
+    </div>
+    <div class="pg-seperator">
+        <span class="pg-or-text">or</span>
+    </div>
+    <div class="login-inputs">
+        <div class="form-row mb-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="First name" [(ngModel)]="firstName">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="lastName">
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Email" [(ngModel)]="email">
+        </div>
+        <div class="input-group mb-3" style="position: relative;">
+            <select class="form-control" [(ngModel)]="country" placeholder="Country">
+                <option *ngFor="let c of countryList">{{c.name}}</option>
+            </select>
+            <i class="fas fa-chevron-down country-icon"></i>
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter Password" type="password" [(ngModel)]="password">
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Confirm Password" type="password"
+                [(ngModel)]="confirmPassword">
+        </div>
+    </div>
+    <div class="t-and-c">
+        <span style="color: red;">{{responseErrMsg}}</span>
+        <br>
+        By signing up, you agree to our <span style="cursor: pointer;" class="color-common" data-dismiss="modal"
+            routerLink="/terms">Terms of Use</span> and <span style="cursor: pointer;" data-dismiss="modal"
+            routerLink="/privacy-policy" class="color-common">Privacy Policy</span>
+    </div>
+    <div class="signup-holder">
+        <button type="button" class="btn button-common login-signin-btn" style="font-weight: bold;" (click)="signUp()"
+            [disabled]="firstName == '' || email == '' || password == '' || confirmPassword == ''">Sign
+            Up</button>
+        <div class="signup-link">
+            Have an account?<span class="sign-up-link-small" (click)="goToLogin()">SIGN IN</span>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="signupSuccessView">
+    <div class="thankYouSignUpModal" id="thankYouSignUpModal">
+        <div class="thankYouSignUpHeader">
+            <h5 class="modal-title" id="thankYouSignUpModalLabel">Thank you for signing up</h5>
+            <!-- <button type="button" class="close thankYouSignUpCloseBtn" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button> -->
+            <i class="fas fa-times login-close thankYouSignUpCloseBtn" data-dismiss="modal"></i>
+        </div>
+        <div class="modal-body">
+            An email has been sent to {{email}} with a link to verify account. If you do not receive the email
+            within the next few minutes, please check your spam folder
+            <!-- or <span> resend verification email.</span> -->
+        </div>
+    </div>
+</div>
+
+
+
+<!-- thankYouSignUpModal -->
+<!-- <div class="modal fade text-center" id="thankYouSignUpModal" tabindex="-1" role="dialog"
+    aria-labelledby="thankYouSignUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content thankYouSignUpModal">
+            <div class="thankYouSignUpHeader">
+                <h5 class="modal-title" id="thankYouSignUpModalLabel">Thank you for signing up</h5>
+                <button type="button" class="close thankYouSignUpCloseBtn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                An email has been sent to {{email}} with a link to verify account. If you do not receive the email
+                within the next few minutes, please check your spam folder  -->
+<!-- or <span> resend verification email.</span> -->
+<!-- </div>
+        </div>
+    </div>
+</div> -->

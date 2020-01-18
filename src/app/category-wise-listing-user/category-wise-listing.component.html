@@ -1,0 +1,286 @@
+<app-logged-in-header></app-logged-in-header>
+<div class="container form-top">
+    <div class="category-header">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="category-name-heading">{{category}} Simulations</div>
+            </div>
+            <div class="col-md-5">
+                <div class="cat-content">
+                    <img class="cat-img img-fluid" src="/assets/category-page1.svg">
+                    <div class="cat-content-text">
+                        {{descriptions.description1}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="cat-content">
+                    <img class="cat-img img-fluid" src="/assets/category-page2.svg">
+                    <div class="cat-content-text">
+                        {{descriptions.description2}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-heading">
+        Top {{category}} simulations
+    </div>
+    <div class="card-holder" style="justify-content: space-between;">
+        <div *ngFor="let product of filteredPopularproducts,index as i">
+            <div *ngIf="i<4" class="simulation-card isBiggerScreen">
+                <div (click)='navigateToFn(product)'>
+                    <div class="sim-img">
+                        <img [src]="product.productThumbNailImageUrl1">
+                    </div>
+                    <div class="sim-card-name">{{product.productTitle}}</div>
+                    <div class="sim-details">
+                        <span><i class="fas fa-signal" style="padding-right:5px"></i>{{product.courseLevel}}</span>
+                        <span><i class="far fa-clock" style="padding-right:5px"></i>{{product.contentDuration}}</span>
+                    </div>
+                </div>
+                <div class="footer-icon">
+                    <i class="fas fa-chevron-down sim-expand-icon" (click)='openViewModalFn(product)'></i>
+                </div>
+
+            </div>
+            <div class="isSmallerScreen">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <div *ngIf="i<4" class="card">
+                                <div class="card-horizontal" (click)='navigateToFn(product)'>
+                                    <div class="img-square-wrapper">
+                                        <img [src]="product.productThumbNailImageUrl1" class="mobile-layout-img">
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title">{{product.productTitle}}</h4>
+                                        <p class="card-text"> <span class="mobile-layout-text"><i
+                                                    class="fas fa-signal"></i>{{product.courseLevel}}</span>
+                                            <br>
+                                            <br>
+                                            <span class="mobile-layout-text"><i
+                                                    class="fas fa-clock"></i>{{product.contentDuration}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section-heading pad-top-bot-0">
+        All {{category}} Simulations
+    </div>
+    <div class="filter-container isBiggerScreen">
+        <div class="filter" (click)="openDropdown('Role')">
+            Role <span *ngIf="roleArray.length">({{roleArray.length}})</span><i class="fas fa-chevron-down filter-icon"
+                [ngClass]="{'fas':true, 'fa-chevron-down':!roleFilterOn,'fa-chevron-up':roleFilterOn }"></i>
+        </div>
+        <div class="filter" (click)="openDropdown('Duration')">
+            Duration<i class="fas fa-chevron-down filter-icon"
+                [ngClass]="{'fas':true, 'fa-chevron-down':!durationFilterOn,'fa-chevron-up':durationFilterOn }"></i>
+        </div>
+        <div class="filter" (click)="openDropdown('CourseLevel')">
+            Course level <span *ngIf="levelsArray.length">({{levelsArray.length}})</span><i
+                class="fas fa-chevron-down filter-icon"
+                [ngClass]="{'fas':true, 'fa-chevron-down':!courseLevelFilterOn,'fa-chevron-up':courseLevelFilterOn }"></i>
+        </div>
+        <div class="clearALl" (click)="clearAll()">
+            Clear all filter
+        </div>
+        <div *ngIf="courseLevelFilterOn" class="category-filter-container">
+            <div *ngFor="let level of masterLevelsFilter,index as i" class="form-group form-check">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="levelsModelArray[i]"
+                    (click)="levelsSelection(level)">
+                <label class="form-check-label filter-check-label" for="financeCategory">{{level}}</label>
+            </div>
+
+        </div>
+        <div *ngIf="durationFilterOn" class="category-filter-container">
+            <div *ngFor="let duration of masterDurationFilter,index as i" class="form-group form-check">
+                <input id="{{duration}}" type="radio" name="duration" [checked]="durations==duration"
+                    class="form-check-input" (click)="durationSelection(duration)">
+                <label class="form-check-label filter-check-label" for="financeCategory">{{duration}}</label>
+            </div>
+
+        </div>
+        <div *ngIf="roleFilterOn" class="category-filter-container">
+            <div *ngFor="let role of masterRoleFilter,index as i" class="form-group form-check">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="roleModelArray[i]"
+                    (click)="rolesSelection(role)">
+                <label class="form-check-label filter-check-label" for="financeCategory">{{role}}</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="isSmallerScreen">
+        <div class="mobile-filter-container">
+            <div class="mobile-filter-btn" (click)='mobFiltSidebarFn()'>
+                Filter
+            </div>
+            <div class="mobile-layOut-clearAll" (click)="clearAll()">
+                Clear all filter
+            </div>
+        </div>
+    </div>
+
+    <div class="isSmallerScreen" *ngIf='mobFiltSidebar'>
+        <div class="mobile-filter-side-bar">
+            <span>Filter</span>
+            <hr>
+            <div class="accordion" id="accordionExample">
+                <!-- <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0" data-toggle="collapse" data-target="#collapseOne"
+                            (click)="tilt90DegfasFn('one')">
+                            <button class="btn btn-link" type="button" aria-expanded="true" aria-controls="collapseOne">
+                                Categories
+                            </button>
+                            <i [ngClass]="{'fa-chevron-up': !catFasTilted, 'fa-chevron-down': catFasTilted}"
+                                class="fas"></i>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body" *ngFor="let category of masterCategoryFilter,index as i">
+                            <input type="checkbox" id="mob-{{category}}" (click)="categorySelection(category)"
+                                [(ngModel)]="categoryModelArray[i]">
+                            <label for="mob-{{category}}" (click)="categorySelection(category)">
+                                {{category}}
+                            </label><br>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0" data-toggle="collapse" data-target="#collapseTwo"
+                            (click)="tilt90DegfasFn('two')">
+                            <button class="btn btn-link collapsed" type="button" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                Duration
+                            </button>
+                            <i [ngClass]="{'fa-chevron-up': durFasTilted, 'fa-chevron-down': !durFasTilted}"
+                                class="fas"></i>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body" *ngFor="let duration of masterDurationFilter,index as i">
+                            <input type="radio" name='duration' id="mob-{{duration}}"
+                                (click)="durationSelection(duration)" [checked]="durations==duration">
+                            <label for="mob-{{duration}}" (click)="durationSelection(duration)">
+                                {{duration}}
+                            </label><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0" data-toggle="collapse" data-target="#collapseThree"
+                            (click)="tilt90DegfasFn('three')">
+                            <button class="btn btn-link collapsed" type="button" aria-expanded="false"
+                                aria-controls="collapseThree">
+                                Role
+                            </button>
+                            <i [ngClass]="{'fa-chevron-up': rolFasTilted, 'fa-chevron-down': !rolFasTilted}"
+                                class="fas"></i>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                        data-parent="#accordionExample">
+                        <div class="card-body" *ngFor="let role of masterRoleFilter,index as i">
+                            <input type="checkbox" id="mob-{{role}}" (click)="rolesSelection(role)"
+                                [(ngModel)]="roleModelArray[i]">
+                            <label for="mob-{{role}}" (click)="rolesSelection(role)">
+                                {{role}}
+                            </label><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0" data-toggle="collapse" data-target="#collapseFour"
+                            (click)="tilt90DegfasFn('four')">
+                            <button class="btn btn-link collapsed" type="button" aria-expanded="false"
+                                aria-controls="collapseFour">
+                                Course Level
+                            </button>
+                            <i [ngClass]="{'fa-chevron-up': levelFasTilted, 'fa-chevron-down': !levelFasTilted}"
+                                class="fas"></i>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                        data-parent="#accordionExample">
+                        <div class="card-body" *ngFor="let level of masterLevelsFilter,index as i">
+                            <input type="checkbox" id="mob-{{level}}" (click)="levelsSelection(level)"
+                                [(ngModel)]="levelsModelArray[i]">
+                            <label for="mob-{{level}}" (click)="levelsSelection(level)">
+                                {{level}}
+                            </label><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="done-btn-div text-center">
+                <button class="btn" (click)='mobFiltSidebarFn()'>Done</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card-holder">
+        <!-- <div > -->
+        <div *ngFor="let product of filteredproducts,index as i" class="simulation-card isBiggerScreen">
+            <div (click)='navigateToFn(product)'>
+                <div class="sim-img">
+                    <img [src]="product.productThumbNailImageUrl1">
+                </div>
+                <div class="sim-card-name">{{product.productTitle}}</div>
+                <div class="sim-details">
+                    <span><i class="fas fa-signal" style="padding-right:5px"></i>{{product.courseLevel}}</span>
+                    <span><i class="far fa-clock" style="padding-right:5px"></i>{{product.contentDuration}}</span>
+                </div>
+            </div>
+            <div class="footer-icon">
+                <i class="fas fa-chevron-down sim-expand-icon" (click)='openViewModalFn(product)'></i>
+            </div>
+        </div>
+
+        <div class="isSmallerScreen">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <div class="card mar-bot-7Cent" *ngFor="let product of filteredproducts">
+                            <div class="card-horizontal" (click)='navigateToFn(product)'>
+                                <div class="img-square-wrapper">
+                                    <img [src]="product.productThumbNailImageUrl1" class="mobile-layout-img">
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        {{product.productTitle}}</h4>
+                                    <p class="card-text"> <span class="mobile-layout-text"><i
+                                                class="fas fa-signal"></i>{{product.courseLevel}}</span>
+                                        <br>
+                                        <br>
+                                        <span class="mobile-layout-text"><i
+                                                class="fas fa-clock"></i>{{product.contentDuration}}</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div> -->
+    </div>
+
+</div>
+<div style="margin-top: 100px;">
+    <app-logged-in-footer></app-logged-in-footer>
+</div>

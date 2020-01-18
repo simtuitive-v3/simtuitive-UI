@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="container normal-view-margin-top">
+    <div class="page-header">
+        Search result for '{{textSearch}}'
+    </div>
+    <div *ngIf="!products.length" class="page-header" style="color: grey;">
+        No products Found
+    </div>
+
+    <div class="card-holder isBiggerScreen">
+        <div class="simulation-card" *ngFor="let sim of products">
+            <div (click)='navigateToFn(sim)'>
+                <div class="sim-img">
+                    <img [src]="sim.productThumbNailImageUrl1">
+                </div>
+                <div class="sim-card-name">{{sim.productTitle}}</div>
+                <div class="sim-details">
+                    <span><i class="fas fa-signal" style="padding-right:5px"></i>{{sim.courseLevel}}</span>
+                    <span><i class="far fa-clock" style="padding-right:5px"></i>{{sim.contentDuration}}</span>
+                </div>
+            </div>
+            <div class="footer-icon">
+                <i class="fas fa-chevron-down sim-expand-icon" (click)='openViewModalFn(sim)'></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="isSmallerScreen">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <div class="card mar-bot-7Cent" *ngFor="let sim of products">
+                        <div class="card-horizontal" (click)='navigateToFn(sim)'>
+                            <div class="img-square-wrapper">
+                                <img [src]="sim.productThumbNailImageUrl1" class="mobile-layout-img">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{sim.productTitle}}</h4>
+                                <p class="card-text"> <span class="mobile-layout-text"><i
+                                            class="fas fa-signal"></i>{{sim.courseLevel}}</span>
+                                    <br>
+                                    <br>
+                                    <span class="mobile-layout-text"><i
+                                            class="fas fa-clock"></i>{{sim.contentDuration}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

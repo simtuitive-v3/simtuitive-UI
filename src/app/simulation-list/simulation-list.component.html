@@ -1,0 +1,274 @@
+<app-header></app-header>
+<div class="container normal-view-margin-top">
+    <div class="page-header">
+        All Simulations
+    </div>
+
+    <div class="filter-container isBiggerScreen">
+        <div class="filter" (click)="openDropdown('Category')">
+            Categories <span *ngIf="categoryArray.length">({{categoryArray.length}})</span><i
+                class="fas fa-chevron-down filter-icon"
+                [ngClass]="{'fas':true, 'fa-chevron-down':!categoryFilterOn,'fa-chevron-up':categoryFilterOn }"></i>
+        </div>
+        <div class="filter" (click)="openDropdown('Role')">
+            Role <span *ngIf="roleArray.length">({{roleArray.length}})</span><i class="fas fa-chevron-down filter-icon"
+                [ngClass]="{'fas':true, 'fa-chevron-down':!roleFilterOn,'fa-chevron-up':roleFilterOn }"></i>
+        </div>
+        <div class="filter" (click)="openDropdown('Duration')">
+            Duration<i class="fas fa-chevron-down filter-icon"
+                [ngClass]="{'fas':true, 'fa-chevron-down':!durationFilterOn,'fa-chevron-up':durationFilterOn }"></i>
+        </div>
+        <div class="filter" (click)="openDropdown('CourseLevel')">
+            Course level <span *ngIf="levelsArray.length">({{levelsArray.length}})</span><i
+                class="fas fa-chevron-down filter-icon"
+                [ngClass]="{'fas':true, 'fa-chevron-down':!courseLevelFilterOn,'fa-chevron-up':courseLevelFilterOn }"></i>
+        </div>
+        <div class="clearALl" (click)="clearAll()">
+            Clear all filter
+        </div>
+        <div class="sort-btn" (click)="openDropdown('sortBy')">
+            Sort By<i class="fas fa-chevron-down" style="padding-left: 10px;"
+                [ngClass]="{'fas':true, 'fa-chevron-down':!sortByFilterOn,'fa-chevron-up':sortByFilterOn }"></i>
+        </div>
+
+        <div *ngIf="categoryFilterOn" class="category-filter-container">
+            <div *ngFor="let category of masterCategoryFilter,index as i" class="form-group form-check">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="categoryModelArray[i]"
+                    (click)="categorySelection(category)">
+                <label class="form-check-label filter-check-label" for="financeCategory">{{category}}</label>
+            </div>
+
+        </div>
+        <div *ngIf="courseLevelFilterOn" class="category-filter-container">
+            <div *ngFor="let level of masterLevelsFilter,index as i" class="form-group form-check">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="levelsModelArray[i]"
+                    (click)="levelsSelection(level)">
+                <label class="form-check-label filter-check-label" for="financeCategory">{{level}}</label>
+            </div>
+
+        </div>
+        <div *ngIf="durationFilterOn" class="category-filter-container">
+            <div *ngFor="let duration of masterDurationFilter,index as i" class="form-group form-check">
+                <input id="{{duration}}" type="radio" name="duration" [checked]="durations==duration"
+                    class="form-check-input" (click)="durationSelection(duration)">
+                <label class="form-check-label filter-check-label" for="financeCategory">{{duration}}</label>
+            </div>
+
+        </div>
+        <div *ngIf="roleFilterOn" class="category-filter-container">
+            <div *ngFor="let role of masterRoleFilter,index as i" class="form-group form-check">
+                <input type="checkbox" class="form-check-input" [(ngModel)]="roleModelArray[i]"
+                    (click)="rolesSelection(role)">
+                <label class="form-check-label filter-check-label" for="financeCategory">{{role}}</label>
+            </div>
+
+        </div>
+        <div *ngIf="sortByFilterOn" class="category-filter-container" style="flex-direction: row-reverse;">
+            <div class="form-group form-check">
+                <input id="NEW_RELEASES" type="radio" name="sortBy" class="form-check-input"
+                    [checked]="sortValue=='NEW_RELEASES'" (click)="sortSelection('NEW_RELEASES')">
+                <label class="form-check-label filter-check-label" for="financeCategory">New releases</label>
+                <!-- </div>POPULARITY
+            <div class="form-group form-check"> -->
+                <input id="POPULARITY" type="radio" name="sortBy" class="form-check-input"
+                    [checked]="sortValue=='POPULARITY'" (click)="sortSelection('POPULARITY')">
+                <label class="form-check-label filter-check-label" for="financeCategory">Popular</label>
+            </div>
+        </div>
+
+    </div>
+    <div class="isSmallerScreen">
+        <div class="mobile-filter-container">
+            <div class="mobile-filter-btn" (click)='mobFiltSidebarFn()'>
+                Filter
+            </div>
+            <div class="mobile-filter-btn" data-toggle="modal" data-target="#sortByModal">
+                Sort <i class="fas fa-chevron-down mobile-filter-icon"
+                    [ngClass]="{'fas':true, 'fa-chevron-down':!categoryFilterOn,'fa-chevron-up':categoryFilterOn }"></i>
+            </div>
+            <div class="mobile-layOut-clearAll" (click)="clearAll()">
+                Clear all filter
+            </div>
+        </div>
+        <div class="modal fade" id="sortByModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content wish-added-modal-container">
+                    <div class="wish-added-heading">Sort By<i class="fas fa-times wish-added-close"
+                            data-dismiss="modal"></i>
+                    </div>
+                    <div>
+                        <div style="margin-bottom: 4%;">
+                            <input id="NEW_RELEASES" type="radio" name="sortBy" class="form-check-input"
+                                [checked]="sortValue=='NEW_RELEASES'" (click)="sortSelection('NEW_RELEASES')">
+                            <label class="form-check-label filter-check-label" for="NEW_RELEASES">New
+                                releases</label>
+                        </div>
+                        <div class="text-left" style="padding-left: 31%;">
+                            <input id="POPULARITY" type="radio" name="sortBy" class="form-check-input"
+                                [checked]="sortValue=='POPULARITY'" (click)="sortSelection('POPULARITY')">
+                            <label class="form-check-label filter-check-label" for="POPULARITY">Popular</label>
+                            <button class="btn modal-done-btn" data-dismiss="modal">Done</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="isSmallerScreen" *ngIf='mobFiltSidebar'>
+        <div class="mobile-filter-side-bar">
+            <span>Filter</span>
+            <hr>
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0" data-toggle="collapse" data-target="#collapseOne"
+                            (click)="tilt90DegfasFn('one')">
+                            <button class="btn btn-link" type="button" aria-expanded="true" aria-controls="collapseOne">
+                                Categories
+                            </button>
+                            <i [ngClass]="{'fa-chevron-up': !catFasTilted, 'fa-chevron-down': catFasTilted}"
+                                class="fas"></i>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body" *ngFor="let category of masterCategoryFilter,index as i">
+                            <input type="checkbox" id="mob-{{category}}" (click)="categorySelection(category)"
+                                [(ngModel)]="categoryModelArray[i]">
+                            <label for="mob-{{category}}">
+                                {{category}}
+                            </label><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0" data-toggle="collapse" data-target="#collapseTwo"
+                            (click)="tilt90DegfasFn('two')">
+                            <button class="btn btn-link collapsed" type="button" aria-expanded="false"
+                                aria-controls="collapseTwo">
+                                Duration
+                            </button>
+                            <i [ngClass]="{'fa-chevron-up': durFasTilted, 'fa-chevron-down': !durFasTilted}"
+                                class="fas"></i>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                        <div class="card-body" *ngFor="let duration of masterDurationFilter,index as i">
+                            <input type="radio" name='duration' id="mob-{{duration}}"
+                                (click)="durationSelection(duration)" [checked]="durations==duration">
+                            <label for="mob-{{duration}}">
+                                {{duration}}
+                            </label><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0" data-toggle="collapse" data-target="#collapseThree"
+                            (click)="tilt90DegfasFn('three')">
+                            <button class="btn btn-link collapsed" type="button" aria-expanded="false"
+                                aria-controls="collapseThree">
+                                Role
+                            </button>
+                            <i [ngClass]="{'fa-chevron-up': rolFasTilted, 'fa-chevron-down': !rolFasTilted}"
+                                class="fas"></i>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                        data-parent="#accordionExample">
+                        <div class="card-body" *ngFor="let role of masterRoleFilter,index as i">
+                            <input type="checkbox" id="mob-{{role}}" (click)="rolesSelection(role)"
+                                [(ngModel)]="roleModelArray[i]">
+                            <label for="mob-{{role}}">
+                                {{role}}
+                            </label><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0" data-toggle="collapse" data-target="#collapseFour"
+                            (click)="tilt90DegfasFn('four')">
+                            <button class="btn btn-link collapsed" type="button" aria-expanded="false"
+                                aria-controls="collapseFour">
+                                Course Level
+                            </button>
+                            <i [ngClass]="{'fa-chevron-up': levelFasTilted, 'fa-chevron-down': !levelFasTilted}"
+                                class="fas"></i>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                        data-parent="#accordionExample">
+                        <div class="card-body" *ngFor="let level of masterLevelsFilter,index as i">
+                            <input type="checkbox" id="mob-{{level}}" (click)="levelsSelection(level)"
+                                [(ngModel)]="levelsModelArray[i]">
+                            <label for="mob-{{level}}">
+                                {{level}}
+                            </label><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="done-btn-div text-center">
+                <button class="btn" (click)='mobFiltSidebarFn()'>Done</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card-holder isBiggerScreen">
+        <div class="simulation-card" *ngFor="let sim of products, index as i">
+            <div (click)='navigateToFn(sim)'>
+                <div class="sim-img">
+                    <img [src]="sim.productThumbNailImageUrl1">
+                </div>
+                <div class="sim-card-name">{{sim.productTitle}}</div>
+                <div class="sim-details">
+                    <span><i class="fas fa-signal" style="padding-right:5px"></i>{{sim.courseLevel}}</span>
+                    <span><i class="far fa-clock" style="padding-right:5px"></i>{{sim.contentDuration}}</span>
+                </div>
+            </div>
+            <div class="footer-icon">
+                <i class="fas fa-chevron-down sim-expand-icon" (click)='openViewModalFn(sim,i)'></i>
+            </div>
+            <!-- <div class="collapse" id="collapseid{{i}}">
+                <div class="card card-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                </div>
+            </div> -->
+        </div>
+        <!-- <div *ngIf='isCardDetail'>
+            <app-home-page-product-modal></app-home-page-product-modal>
+        </div> -->
+    </div>
+
+    <div class="isSmallerScreen">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <div class="card mar-bot-7Cent" *ngFor="let sim of products">
+                        <div class="card-horizontal" (click)='navigateToFn(sim)'>
+                            <div class="img-square-wrapper">
+                                <img [src]="sim.productThumbNailImageUrl1" class="mobile-layout-img">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{sim.productTitle}}</h4>
+                                <p class="card-text"> <span class="mobile-layout-text"><i
+                                            class="fas fa-signal"></i>{{sim.courseLevel}}</span>
+                                    <br>
+                                    <br>
+                                    <span class="mobile-layout-text"><i
+                                            class="fas fa-clock"></i>{{sim.contentDuration}}</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

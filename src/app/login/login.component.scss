@@ -1,0 +1,86 @@
+.login-heading {
+  color: white;
+  font-size: 30px;
+  font-family: "Ubuntu";
+  padding-bottom: 25px;
+}
+.login-close {
+  float: right;
+  color: #ff5656;
+  font-size: 13px;
+  cursor: pointer;
+}
+.login-google {
+  border-radius: 3px;
+  padding: 14px 77px;
+  background-color: white;
+  color: #292e30;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.pg-seperator {
+  border-bottom: 1px solid #485054;
+  position: relative;
+  margin: 30px 0;
+}
+.pg-or-text {
+  position: absolute;
+  top: -12px;
+  right: 46%;
+  background: #0b1014;
+  color: #b9b9b9;
+  padding: 0 15px;
+}
+.forgot-pwd-link {
+  color: #ff9100;
+  font-size: 13px;
+  padding-bottom: 20px;
+  text-align: left;
+  cursor: pointer;
+}
+.login-signin-btn {
+  border-radius: 20px !important;
+  padding: 9px 26px !important;
+  font-size: 16px !important;
+}
+.signup-link {
+  font-size: 13px;
+  color: #b9b9b9;
+  padding-top: 10px;
+}
+.t-and-c {
+  color: #b9b9b9;
+  font-size: 10px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+.login-modal-container {
+  padding: 30px 40px;
+  background-color: #0c1014;
+  text-align: center;
+}
+.forgot-msg {
+  font-size: 16px;
+  color: white;
+}
+.error-msg {
+  font-size: 13px;
+  color: #ff5656;
+  padding-bottom: 15px;
+  text-align: left;
+}
+.sign-up-link-small {
+  color: #ff9100;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 414px) {
+  .login-google {
+    padding: 10px 40px;
+  }
+}

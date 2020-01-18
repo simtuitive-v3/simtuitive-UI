@@ -1,0 +1,81 @@
+h1 {
+  font-size: 40px;
+  color: #00ebc7;
+  font-family: "Ubuntu";
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 17px;
+  color: #ffffff;
+  line-height: 30px;
+  margin-bottom: 50px;
+  width: 300px;
+  height: 86px;
+  font-family: "Nunito", "light";
+}
+
+h5 {
+  color: #ffffff;
+  padding-top: 10.37px;
+}
+
+.contact-number {
+  font-size: 20px;
+  color: #ffffff;
+  display: block;
+}
+
+.rightImg {
+  float: right;
+}
+
+.mar-bot-30px {
+  margin-bottom: 30px;
+}
+
+img {
+  padding-top: 20px;
+}
+
+.isSmallerScreen {
+  display: none;
+}
+
+// Responsive styles/Logics from here
+@media only screen and(max-width: 414px) {
+  .isBiggerScreen {
+    display: none;
+  }
+  .isSmallerScreen {
+    display: inline;
+  }
+  .normal-view-margin-top {
+    margin-top: 88px
+  }
+  h1 {
+    padding-top: 1%;
+    font-size: 32px;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+  .mar-lef-9Cent {
+    margin-left: 9%;
+  }
+  .main-page-img {
+    display: block;
+    margin: auto;
+  }
+  .phone-email-block {
+    margin-top: 36px;
+  }
+  .contact-number {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+  h5 {
+    font-size: 15px;
+  }
+}

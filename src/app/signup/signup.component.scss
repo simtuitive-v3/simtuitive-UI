@@ -1,0 +1,130 @@
+.login-heading {
+  color: white;
+  font-size: 30px;
+  font-family: "Ubuntu";
+  padding-bottom: 25px;
+}
+.login-close {
+  float: right;
+  color: #ff5656;
+  font-size: 13px;
+  cursor: pointer;
+}
+.login-google {
+  border-radius: 3px;
+  padding: 14px 77px;
+  background-color: white;
+  color: #292e30;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.pg-seperator {
+  border-bottom: 1px solid #485054;
+  position: relative;
+  margin: 30px 0;
+}
+.pg-or-text {
+  position: absolute;
+  top: -12px;
+  right: 46%;
+  background: #0b1014;
+  color: #b9b9b9;
+  padding: 0 15px;
+}
+.forgot-pwd-link {
+  color: #ff9100;
+  font-size: 13px;
+  padding-bottom: 20px;
+  text-align: left;
+  cursor: pointer;
+}
+.login-signin-btn {
+  border-radius: 20px !important;
+  padding: 9px 26px !important;
+  font-size: 16px !important;
+}
+.signup-link {
+  font-size: 13px;
+  color: #b9b9b9;
+  padding-top: 10px;
+}
+.t-and-c {
+  color: #b9b9b9;
+  font-size: 10px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+#thankYouSignUpModal {
+  // padding: 30px 40px;
+  text-align: center;
+  // margin-top: 153px;
+}
+
+.thankYouSignUpModal {
+  background-color: #0c1014;
+  // width: 676px;
+  color: white;
+  line-height: 30px;
+  // height: 201px;
+}
+
+.thankYouSignUpModal > .modal-body > span {
+  color: #ff9100;
+}
+
+#thankYouSignUpModalLabel {
+  display: inline-block;
+}
+
+.thankYouSignUpCloseBtn {
+  color: #ff5656;
+  // margin-right: 41px;
+  font-size: 15px;
+}
+
+.thankYouSignUpHeader {
+  margin-bottom: 30px;
+}
+.country-field {
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  background: transparent;
+  color: #848484;
+  padding: 14px 15px;
+  font-size: 16px;
+  // border: 1px solid #485054;
+  border-radius: 3px;
+  height: 50px;
+  width: 100%;
+  text-align: left;
+}
+.country-icon {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+}
+.sign-up-link-small {
+  color: #ff9100;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+@media only screen and (max-width: 414px) {
+  .login-google {
+    padding: 10px 40px;
+  }
+}
