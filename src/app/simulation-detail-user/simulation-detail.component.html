@@ -40,6 +40,8 @@
                     <video width="700" height="400" autoplay controls controlsList="nodownload" *ngIf='hideImgAndIcon'
                         (ended)='playOrCloseVideoFn()'>
                         <source [src]="product_detail.productTrailerVideoUrl" type="video/mp4">
+                        <track *ngIf='vttUrl' [src]="vttUrl" kind="subtitles"
+                            srclang="en" label="English">
                     </video>
                 </div>
             </div>

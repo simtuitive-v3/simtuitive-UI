@@ -181,11 +181,13 @@
 .header-fav-icon {
   width: 20px;
   margin-right: 40px;
+  cursor: pointer;
 }
 .header-user-icon {
   width: 40px;
   height: 40px;
   position: relative;
+  cursor: pointer;
 }
 .user-dropdown-holder {
   position: absolute;

@@ -37,11 +37,11 @@
                         (click)='playOrCloseVideoFn()' [hidden]='hideImgAndIcon'>
                     <i class="far fa-play-circle play-icon" [hidden]='hideImgAndIcon'
                         (click)='playOrCloseVideoFn()'></i>
-
-                    <video width="700" height="400" autoplay controls controlsList="nodownload" *ngIf='hideImgAndIcon'
-                        (ended)='playOrCloseVideoFn()'>
+                    <video id="video" width="700" height="400" autoplay controls controlsList="nodownload"
+                        *ngIf='hideImgAndIcon' (ended)='playOrCloseVideoFn()'>
                         <source [src]="product_detail.productTrailerVideoUrl" type="video/mp4">
-                        <!-- <track src="../../assets/PR19_Business_Ethics [Fundamentals] [SubtitleTools.com] (1).vtt" kind="subtitles" srclang="en" label="English"> -->
+                        <track *ngIf='vttUrl' [src]="vttUrl" kind="subtitles"
+                            srclang="en" label="English">
                     </video>
                 </div>
             </div>
@@ -230,13 +230,15 @@
     </div>
     <div class="card-holder isBiggerScreen">
         <div *ngFor="let product of filteredproducts" class="simulation-card">
-            <div class="sim-img">
-                <img [src]="product.productThumbNailImageUrl1" (click)='windowScrollFn(product)'>
-            </div>
-            <div class="sim-card-name" (click)='windowScrollFn(product)'>{{product.productTitle}}</div>
-            <div class="sim-details">
-                <span><i class="fas fa-signal" style="padding-right:5px"></i>{{product.courseLevel}}</span>
-                <span><i class="far fa-clock" style="padding-right:5px"></i>{{product.contentDuration}}</span>
+            <div (click)='windowScrollFn(product)'>
+                <div class="sim-img">
+                    <img [src]="product.productThumbNailImageUrl1">
+                </div>
+                <div class="sim-card-name">{{product.productTitle}}</div>
+                <div class="sim-details">
+                    <span><i class="fas fa-signal" style="padding-right:5px"></i>{{product.courseLevel}}</span>
+                    <span><i class="far fa-clock" style="padding-right:5px"></i>{{product.contentDuration}}</span>
+                </div>
             </div>
             <div class="footer-icon">
                 <i class="fas fa-chevron-down sim-expand-icon" (click)='openViewModalFn(product)'></i>
@@ -268,6 +270,5 @@
         </div>
     </div>
 </div>
-
 
 <app-footer></app-footer>

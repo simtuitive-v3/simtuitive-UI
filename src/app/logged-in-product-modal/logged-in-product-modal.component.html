@@ -32,7 +32,7 @@
                             <button type="button" class="btn prd-drpDwn-add-wishlist"
                                 (click)='loggedInOpenWishListModalFn()'>Add to Wishlist</button>
                             <button type="button" class="btn button-common prod-drpdwn-learn-btn"
-                                routerLink="/user/product/{{productData.id}}" data-dismiss="modal">Learn
+                                 (click)='navigateToFn(productData)' data-dismiss="modal">Learn
                                 More</button>
                         </div>
                     </div>

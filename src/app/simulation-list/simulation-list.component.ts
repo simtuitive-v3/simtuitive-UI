@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from "../service/product.service";
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
+import { Config } from '../config';
 
 declare let $: any
 
@@ -42,6 +43,8 @@ export class SimulationListComponent implements OnInit {
   durFasTilted: boolean
   rolFasTilted: boolean
   levelFasTilted: boolean
+
+  delimiter = new Config().delimiter
 
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private _router: Router, private _data: DataService) {
     // this.activatedRoute.queryParams
@@ -230,7 +233,9 @@ export class SimulationListComponent implements OnInit {
   }
 
   navigateToFn(sim) {
+    // this._data.getProdDetailsFn(sim.id)
     let qp = sim.productTitle.split(' ').join('-')
-    this._router.navigate([`/product/${sim.id}/`], { queryParams: { '': `${qp}` } })
+    this._router.navigate([`/product/${qp}${this.delimiter}${sim.courseLevel}`])
+    // this._router.navigateByUrl(`/product/${qp}`)
   }
 } // Main Closing Braces

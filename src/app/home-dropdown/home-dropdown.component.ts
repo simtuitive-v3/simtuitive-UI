@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { Router } from '@angular/router';
+import { Config } from '../config';
 
 @Component({
   selector: 'app-home-dropdown',
@@ -11,6 +12,9 @@ import { Router } from '@angular/router';
 export class HomeDropdownComponent implements OnInit {
   filteredProducts
   category
+
+  delimiter = new Config().delimiter
+
   constructor(private productService: ProductService, private router: Router) {
     this.filteredProducts = []
     this.category = 'Finance'
@@ -39,6 +43,6 @@ export class HomeDropdownComponent implements OnInit {
   navigateToFn(product) {
     // window.scroll(0, 0)
     let qp = product.productTitle.split(' ').join('-')
-    this.router.navigate([`/product/${product.id}`], { queryParams: { '': `${qp}` } })
+    this.router.navigate([`/product/${qp}${this.delimiter}${product.courseLevel}`])//, { queryParams: { '': `${qp}` } })
   }
 } // Main Closing Braces

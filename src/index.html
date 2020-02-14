@@ -1,4 +1,9 @@
-<!doctype html>
+<!doctype html cross-domain-policy SYSTEM "https://simtuitive-assets-0001.s3.ap-south-1.amazonaws.com/">
+
+<cross-domain-policy>
+  <allow-access-from domain="https://simtuitive-assets-0001.s3.ap-south-1.amazonaws.com/" />
+</cross-domain-policy>
+
 <html lang="en">
 
 <head>
@@ -11,6 +16,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
 
+  <!-- 1. Configure SystemJS -->
+  <script src="system.config.js"></script>
+  <!-- 2. Add cookieconsent dependency-->
+  <link rel="stylesheet" type="text/css"
+    href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
 
   <link rel="icon" type="image/x-icon" href="favicon-simtutive.png">
   <link rel="shortcut icon" type="image/png" href="/assets/favicon-simtutive.png" />
@@ -25,15 +36,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-  <script
-    type="text/javascript"> (function () { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+  <script type="text/javascript"> (function () { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); 
+  </script>
 
 </head>
 
 <body>
   <app-root></app-root>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <script src="https://kit.fontawesome.com/c7f299f7ca.js" crossorigin="anonymous"></script> -->
 </body>
 
 </html>

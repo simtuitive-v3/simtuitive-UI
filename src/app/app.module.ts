@@ -39,6 +39,7 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { CookieService } from 'ngx-cookie-service'
+import { NgcCookieConsentModule, NgcCookieConsentConfig } from 'ngx-cookieconsent';
 
 const config = new AuthServiceConfig([
   {
@@ -47,6 +48,35 @@ const config = new AuthServiceConfig([
 
   }
 ]);
+
+const cookieConfig: NgcCookieConsentConfig = {
+  "cookie": {
+    "domain": "https://www.simtuitive.com/home"
+  },
+  "position": "bottom",
+  "theme": "classic",
+  "palette": {
+    "popup": {
+      "background": "black",
+      "text": "#ffffff",
+      "link": "#ffffff"
+    },
+    "button": {
+      "background": "#ff9100",
+      "text": "#000000",
+      "border": "transparent",
+    }
+  },
+  "type": "opt-out",
+  "content": {
+    "message": "This website uses cookies to ensure you get the best experience on our website.",
+    "dismiss": "Accept!",
+    "deny": "Refuse cookies",
+    "link": "",
+    // "href": "https://cookiesandyou.com",
+    "policy": "Cookie Policy"
+  }
+};
 
 export function provideConfig() {
   return config;
@@ -88,7 +118,8 @@ export function provideConfig() {
     FormsModule,
     SocialLoginModule,
     HttpClientModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    NgcCookieConsentModule.forRoot(cookieConfig)
   ],
   providers: [{
     provide: AuthServiceConfig,

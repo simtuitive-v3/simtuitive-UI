@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { UserService } from '../service/UserService';
 import { Component, OnInit } from '@angular/core';
+import { Config } from '../config';
 
 declare let $: any
 
@@ -18,14 +19,20 @@ export class SimulationDetailComponent implements OnInit {
   product_detail
   filteredproducts
   category
+  vttUrl: string;
 
   hideImgAndIcon: Boolean = false
+
+  delimiter = new Config().delimiter
+
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private productService: ProductService, private userService: UserService, private _data: DataService) {
     this.product_detail = []
 
+
     this.activatedRoute.params.subscribe(p => {
-      this.product_id = p.id
+      this.product_id = p.id.split('-').join(' ')
+      // this.product_id = p.id
       this.hideImgAndIcon = false
       this.getProductDetails()
     });
@@ -50,6 +57,10 @@ export class SimulationDetailComponent implements OnInit {
     this.productService.getProductDetails(this.product_id).subscribe((data: any) => {
       this.product_detail = JSON.parse(data._body)
       this.category = this.product_detail.productCategories
+      if (this.product_detail.trailerVtt !== null) {
+        this.vttUrl = encodeURI(this.product_detail.trailerVtt.substr(this.product_detail.trailerVtt.lastIndexOf('/') + 1));
+        this.vttUrl = new Config().apiUrl + '/asset/vttcontent/' + this.vttUrl;
+      }
       this.getFilteredProduct()
     })
   }
@@ -76,7 +87,8 @@ export class SimulationDetailComponent implements OnInit {
   windowScrollFn(product) {
     window.scroll(0, 0)
     let qp = product.productTitle.split(' ').join('-')
-    this.router.navigate([`/user/product/${product.id}`], { queryParams: { '': `${qp}` } })
+    this.router.navigate([`/user/product/${qp}${this.delimiter}${product.courseLevel}`])
+    // this.router.navigate([`/user/product/${product.id}`], { queryParams: { '': `${qp}` } })
   }
 
 } // Main Closing Braces

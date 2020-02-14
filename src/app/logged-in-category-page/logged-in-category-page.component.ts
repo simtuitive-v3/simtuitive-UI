@@ -2,6 +2,7 @@ import { ProductService } from 'src/app/service/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { Component, OnInit } from '@angular/core';
+import { Config } from '../config';
 
 declare let $: any
 
@@ -15,6 +16,8 @@ export class LoggedInCategoryPageComponent implements OnInit {
   filteredproducts
   masterPoducts
   filtered
+
+  delimiter = new Config().delimiter
 
   constructor(private productService: ProductService, private router: Router, private _data: DataService) { }
 
@@ -44,7 +47,7 @@ export class LoggedInCategoryPageComponent implements OnInit {
   navigateToFn(product) {
     window.scroll(0, 0)
     let qp = product.productTitle.split(' ').join('-')
-    this.router.navigate([`/user/product/${product.id}`], { queryParams: { '': `${qp}` } })
+    this.router.navigate([`/user/product/${qp}${this.delimiter}${product.courseLevel}`])
   }
 
 } // Main Closing Braces

@@ -49,6 +49,7 @@ export class CategoriesPageComponent implements OnInit {
   }
   navigateToFn(sim) {
     let qp = sim.productTitle.split(' ').join('-')
-    this.router.navigate([`/product/${sim.id}/`], { queryParams: { '': `${qp}` } })
+    this.router.navigate([`/product/${qp}_${sim.courseLevel}`])
   }
+
 } // Main Closing Braces

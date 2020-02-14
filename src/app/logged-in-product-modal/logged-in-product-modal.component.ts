@@ -1,6 +1,8 @@
 import { DataService } from '../services/data.service';
 import { UserService } from '../service/UserService';
 import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
+import { Config } from '../config';
 
 declare let $: any
 
@@ -13,8 +15,9 @@ declare let $: any
 export class LoggedInProductModalComponent implements OnInit {
 
   productData
+  delimiter = new Config().delimiter
 
-  constructor(private _data: DataService, private _user: UserService) { }
+  constructor(private _data: DataService, private _user: UserService, private _router: Router) { }
 
   ngOnInit() {
     this.productData = { 'hideImgAndIcon': false }
@@ -48,5 +51,11 @@ export class LoggedInProductModalComponent implements OnInit {
   closeWishlistModal() {
     $('#logged-in-wishList-modal').modal('hide')
     $('#logged-in-wishList-reject-modal').modal('hide')
+  }
+
+  navigateToFn(product) {
+    window.scroll(0, 0)
+    let qp = product.productTitle.split(' ').join('-')
+    this._router.navigate([`/user/product/${qp}${this.delimiter}${product.courseLevel}`])
   }
 } // Main Closing Braces

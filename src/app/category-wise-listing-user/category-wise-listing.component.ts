@@ -2,6 +2,7 @@ import { ProductService } from '../service/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../services/data.service';
+import { Config } from '../config';
 
 declare let $: any
 
@@ -42,6 +43,8 @@ export class CategoryWiseListingComponent implements OnInit {
   durFasTilted: boolean
   rolFasTilted: boolean
   levelFasTilted: boolean
+
+  delimiter = new Config().delimiter
 
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private _data: DataService, private _router: Router) {
     this.activatedRoute.queryParams
@@ -230,7 +233,7 @@ export class CategoryWiseListingComponent implements OnInit {
   navigateToFn(product) {
     window.scroll(0, 0)
     let qp = product.productTitle.split(' ').join('-')
-    this._router.navigate([`/user/product/${product.id}`], { queryParams: { '': `${qp}` } })
+    this._router.navigate([`/user/product/${qp}${this.delimiter}${product.courseLevel}`])
   }
 
 } // Main Closing Braces

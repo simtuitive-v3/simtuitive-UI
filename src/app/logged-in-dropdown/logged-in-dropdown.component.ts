@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import { Router } from '@angular/router';
+import { Config } from '../config';
 
 @Component({
   selector: 'app-logged-in-dropdown',
@@ -11,6 +12,9 @@ import { Router } from '@angular/router';
 export class LoggedInDropdownComponent implements OnInit {
   filteredProducts
   category
+
+  delimiter = new Config().delimiter
+
   constructor(private productService: ProductService, private router: Router) {
     this.filteredProducts = []
     this.category = 'Finance'
@@ -39,6 +43,6 @@ export class LoggedInDropdownComponent implements OnInit {
   navigateToFn(product) {
     // window.scroll(0, 0)
     let qp = product.productTitle.split(' ').join('-')
-    this.router.navigate([`/user/product/${product.id}`], { queryParams: { '': `${qp}` } })
+    this.router.navigate([`/user/product/${qp}${this.delimiter}${product.courseLevel}`])
   }
 } // Main Closing Braces

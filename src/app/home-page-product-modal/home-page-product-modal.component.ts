@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
+import { Config } from '../config';
 
 declare let $: any
 
@@ -14,7 +16,9 @@ export class HomePageProductModalComponent implements OnInit {
   productData
   hideImgAndIcon: boolean
 
-  constructor(private _data: DataService) {
+  delimiter = new Config().delimiter
+
+  constructor(private _data: DataService, private _router: Router) {
 
   }
 
@@ -44,6 +48,12 @@ export class HomePageProductModalComponent implements OnInit {
     this.productData.hideImgAndIcon = false
     $('#main-page-prd-modal').modal('hide')
     $('#loginModal').modal('show')
+  }
+
+  navigateToFn(product) {
+    window.scroll(0, 0)
+    let qp = product.productTitle.split(' ').join('-')
+    this._router.navigate([`/product/${qp}${this.delimiter}${product.courseLevel}`])
   }
 
 } // Main Closing Braces

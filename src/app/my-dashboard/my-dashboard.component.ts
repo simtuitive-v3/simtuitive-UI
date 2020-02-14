@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../service/UserService';
+import { Config } from '../config';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-dashboard',
@@ -8,7 +10,10 @@ import { UserService } from '../service/UserService';
 })
 export class MyDashboardComponent implements OnInit {
   userdetail
-  constructor(private userService: UserService) {
+
+  delimiter = new Config().delimiter
+
+  constructor(private userService: UserService, private _router: Router) {
 
 
   }
@@ -26,6 +31,12 @@ export class MyDashboardComponent implements OnInit {
     this.userService.removeWishlist(id).subscribe(data => {
       this.getWishList()
     })
+  }
+
+  navigateToFn(product) {
+    window.scroll(0, 0)
+    let qp = product.productTitle.split(' ').join('-')
+    this._router.navigate([`/user/product/${qp}${this.delimiter}${product.courseLevel}`])
   }
 
 }

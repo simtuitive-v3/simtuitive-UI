@@ -26,6 +26,6 @@ export class ProductService {
     return this.http.get(this.configUrl + '/user')
   }
   searchProducts(text) {
-    return this.http.get(this.configUrl + '/product/search', { params: {q:text} })
+    return this.http.get(this.configUrl + '/product/search', { params: { q: text } })
   }
 }

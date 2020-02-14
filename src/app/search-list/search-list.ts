@@ -2,6 +2,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../service/product.service';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { Config } from '../config';
 declare let $: any
 @Component({
   selector: 'app-simulation-detail',
@@ -28,6 +29,8 @@ export class SearchListComponent implements OnInit {
   masterLevelsFilter
   levelsArray
   textSearch
+
+  delimiter = new Config().delimiter
 
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private _data: DataService, private _router: Router) {
     this.activatedRoute.queryParams
@@ -147,6 +150,6 @@ export class SearchListComponent implements OnInit {
   navigateToFn(product) {
     window.scroll(0, 0)
     let qp = product.productTitle.split(' ').join('-')
-    this._router.navigate([`/product/${product.id}`], { queryParams: { '': `${qp}` } })
+    this._router.navigate([`/product/${qp}${this.delimiter}${product.courseLevel}`])
   }
 } //Main Closing Braces
